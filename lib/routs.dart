@@ -5,6 +5,7 @@ import 'package:lemon/view/screens/Orders/orders.dart';
 import 'package:lemon/view/screens/Products/Product_details.dart';
 import 'package:lemon/view/screens/Stores/Store_Profile.dart';
 import 'package:lemon/view/screens/Stores/Stores.dart';
+import 'package:lemon/view/screens/cart/CartStoreProducts.dart';
 import 'package:lemon/view/screens/cart/cart.dart';
 import 'package:lemon/view/screens/home/homePage.dart';
 import 'package:lemon/view/screens/home/home_screen.dart';
@@ -41,6 +42,7 @@ class AppRout {
   static const String test = "/test";
   static const String cart = "/cart";
   static const String orders = "/orders";
+  static const String cartStoreProducts = "/cartStoreProducts";
 }
 
 // CacheHelper().getDataString(key: "step")!=1? AppRout.homePage :
@@ -68,4 +70,5 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(name: AppRout.test, page: () => test()),
   GetPage(name: AppRout.cart, page: () => Cart()),
   GetPage(name: AppRout.orders, page: () => Orders()),
+  GetPage(name: AppRout.cartStoreProducts, page: () => CartStoreProducts()),
 ];

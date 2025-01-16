@@ -33,7 +33,7 @@ class OrdersController extends GetxController {
 
   @override
   void onInit() {
-    getMyOrders();
+    // getMyOrders();
     super.onInit();
   }
 }

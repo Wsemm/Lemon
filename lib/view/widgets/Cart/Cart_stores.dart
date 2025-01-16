@@ -1,15 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
 
-class CustomListStores extends StatelessWidget {
-  const CustomListStores(
-      {super.key, required this.index, required this.data, this.home});
+import '../../../controller/Cart_Controller.dart';
+import '../../../core/constant/AppColor.dart';
+
+class CartStores extends StatelessWidget {
+  const CartStores({super.key, this.index, this.data, this.home});
   final index, data;
   final int? home;
   @override
   Widget build(BuildContext context) {
+    CartController controller = Get.find();
+
     return Container(
       width: Get.width - 25,
       margin: EdgeInsets.symmetric(
@@ -25,22 +28,23 @@ class CustomListStores extends StatelessWidget {
           height: Get.height / 5,
           child: Column(
             children: [
-              Hero(
-                tag:
-                    "${data[index]["id"]}_${DateTime.now().microsecondsSinceEpoch}",
-                child: CachedNetworkImage(
-                  imageUrl: home == 1
-                      ? "${data[index]["coverPath"]}"
-                      : "${data[index]["coverURL"]}",
-                  fit: BoxFit.fill,
-                  height: Get.height * 0.11,
-                  width: Get.width - Get.width * 0.090,
-                ),
-              ),
+              // Hero(
+              //   tag:
+              //       "${data[index]["id"]}_${DateTime.now().microsecondsSinceEpoch}",
+              //   child: CachedNetworkImage(
+              //     imageUrl: home == 1
+              //         ? "${data[index]["coverPath"]}"
+              //         : "${data[index]["coverURL"]}",
+              //     fit: BoxFit.fill,
+              //     height: Get.height * 0.11,
+              //     width: Get.width - Get.width * 0.090,
+              //   ),
+              // ),
               Container(
                 margin: EdgeInsets.only(top: Get.height * 0.010),
                 child: Row(
-                  children: [Text("${data[index]["brand"]}")],
+                  // children: [Text("${data[index]["brand"]}")],
+                  children: [Text("brand")],
                 ),
               ),
               Container(
@@ -49,7 +53,7 @@ class CustomListStores extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "Tag",
+                      "storeId",
                       style: TextStyle(color: Colors.grey),
                     )
                   ],
@@ -60,7 +64,7 @@ class CustomListStores extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      "${data[index]["id"]}",
+                      "${data[index].totalAmount}",
                     )
                   ],
                 ),

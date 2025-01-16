@@ -16,13 +16,11 @@ class homePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(fenix: true, () => ProductDetailsController());
-    Get.lazyPut(() => homePageController());
-    Get.lazyPut(() => Auth_Controller());
-    homePageController controller = Get.find();
-    Auth_Controller auth_controller = Get.find();
+    HomePageController homePageController = Get.find();
 
+    // Get.put(Auth_Controller());
     // ChatBotController chatBot_Controller = Get.put(ChatBotController());
-    return GetBuilder<homePageController>(
+    return GetBuilder<HomePageController>(
       builder: (controller) => Scaffold(
           backgroundColor: Colors.grey[300],
           body: Column(
@@ -53,7 +51,7 @@ class homePage extends StatelessWidget {
                           children: [
                             IconButton(
                                 onPressed: () {
-                                  controller.Notification();
+                                  controller.sendNotification();
                                 },
                                 icon: const Icon(Icons.favorite_border,
                                     color: Colors.white)),
@@ -174,136 +172,7 @@ class homePage extends StatelessWidget {
                         ],
                       ),
                     ),
-
-                    // Container(
-                    //   margin: EdgeInsets.only(
-                    //       bottom: Get.height * 0.015,
-                    //       right: Get.width * 0.020,
-                    //       left: Get.width * 0.020),
-                    //   child: Row(
-                    //     children: [
-                    //       Column(
-                    //         children: [
-                    //           Container(
-                    //             // margin: EdgeInsets.symmetric(
-                    //             //   horizontal: Get.width * 0.020,
-                    //             // ),
-                    //             decoration: BoxDecoration(
-                    //               // color: Colors.grey[400],
-                    //               color: const Color.fromRGBO(19, 123, 114, 0.2),
-
-                    //               borderRadius: BorderRadius.circular(10),
-                    //             ),
-                    //             child: (MaterialButton(
-                    //               onPressed: () {
-                    //                 controller.repository.filter = 0;
-                    //                 Get.toNamed(AppRout.stores);
-                    //               },
-                    //               child: Column(
-                    //                 children: [
-                    //                   Image.asset(
-                    //                     AppImage.doctor1,
-                    //                     height: Get.height / 9,
-                    //                   ),
-                    //                   Container(
-                    //                     // margin:
-                    //                     //     EdgeInsets.only(top: Get.height * 0.010),
-                    //                     child: const Text("Stores",
-                    //                         style: TextStyle(
-                    //                             fontWeight: FontWeight.bold,
-                    //                             fontSize: 17)),
-                    //                   )
-                    //                 ],
-                    //               ),
-                    //             )),
-                    //           ),
-                    //         ],
-                    //       ),
-                    //       // ,
-                    //       Column(
-                    //         children: [
-                    //           Container(
-                    //             margin: EdgeInsets.only(
-                    //               left: Get.width * 0.020,
-                    //             ),
-                    //             decoration: BoxDecoration(
-                    //               color: const Color.fromRGBO(19, 123, 114, 0.2),
-
-                    //               borderRadius: BorderRadius.circular(10),
-                    //               // color: AppColor.primaryColor
-                    //             ),
-                    //             child: (MaterialButton(
-                    //               onPressed: () {},
-                    //               child: Column(
-                    //                 children: [
-                    //                   Image.asset(AppImage.doctor3,
-                    //                       height: Get.height / 10),
-                    //                   Container(
-                    //                     margin:
-                    //                         EdgeInsets.only(top: Get.height * 0.010),
-                    //                     child: const Text("Doctors",
-                    //                         style: TextStyle(
-                    //                             fontWeight: FontWeight.bold,
-                    //                             fontSize: 17)),
-                    //                   )
-                    //                 ],
-                    //               ),
-                    //             )),
-                    //           ),
-                    //         ],
-                    //       )
-                    //     ],
-                    //   ),
-                    // ),
-
-                    // Container(
-                    //   margin: EdgeInsets.only(left: Get.width * 0.020),
-                    //   child: Row(
-                    //     children: const [
-                    //       Text(
-                    //         "Doctors",
-                    //         style:
-                    //             TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
-                    // Container(
-                    //   margin: EdgeInsets.only(
-                    //       top: Get.height * 0.015,
-                    //       left: Get.width * 0.020,
-                    //       right: Get.width * 0.020),
-                    //   child: SingleChildScrollView(
-                    //     scrollDirection: Axis.horizontal,
-                    //     child: Row(
-                    //       children: [
-                    //         ...List.generate(
-                    //             6,
-                    //             (index) => Container(
-                    //                   margin: const EdgeInsets.symmetric(
-                    //                     horizontal: 10,
-                    //                   ),
-                    //                   child: Column(
-                    //                     children: [
-                    //                       InkWell(
-                    //                         onTap: () {},
-                    //                         child: CircleAvatar(
-                    //                           maxRadius: 40,
-                    //                           backgroundImage: AssetImage(controller
-                    //                               .listDoctors[index]["image"]),
-                    //                         ),
-                    //                       ),
-                    //                       Text(
-                    //                           "${controller.listDoctors[index]["name"]}")
-                    //                     ],
-                    //                   ),
-                    //                 )),
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
                     Divider(thickness: 10),
-
                     if (controller.repository.sections != null)
                       Container(
                         // color: Colors.white,
@@ -343,7 +212,6 @@ class homePage extends StatelessWidget {
                         ),
                       ),
                     Divider(thickness: 10),
-
                     if (controller.repository.sections != null)
                       Container(
                         margin: EdgeInsets.only(left: Get.width * 0.020),
@@ -369,7 +237,7 @@ class homePage extends StatelessWidget {
                           // controller: controller.scrollController,
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
-                          itemCount: 1,
+                          itemCount: controller.repository.sections[0]["items"].length,
                           itemBuilder: (context, index) => Row(
                             children: [
                               InkWell(
@@ -396,7 +264,6 @@ class homePage extends StatelessWidget {
                         ),
                       ),
                     Divider(thickness: 10),
-
                     if (controller.searchTextController.text.isNotEmpty)
                       Container(
                         width: 300,
@@ -420,7 +287,6 @@ class homePage extends StatelessWidget {
                           ),
                         ),
                       ),
-
                     if (controller.repository.sections != null)
                       Container(
                         margin: EdgeInsets.only(left: Get.width * 0.020),
@@ -469,7 +335,6 @@ class homePage extends StatelessWidget {
                           ),
                         ),
                       ),
-
                     if (controller.searchTextController.text.isNotEmpty)
                       Container(
                         width: 300,

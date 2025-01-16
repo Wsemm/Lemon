@@ -65,4 +65,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'lemon-48246.firebasestorage.app',
     iosBundleId: 'com.example.lemon',
   );
+
 }

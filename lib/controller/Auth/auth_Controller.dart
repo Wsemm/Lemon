@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
+import 'package:firebase_messaging/firebase_Messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
+import 'package:lemon/controller/homePage_Controller.dart';
 import 'package:lemon/core/api/api/api_consumer.dart';
 import 'package:lemon/core/api/api/dio_consumer.dart';
 import 'package:lemon/core/api/api/end_points.dart';
@@ -58,6 +60,9 @@ class Auth_Controller extends GetxController {
   var countdownTime = 60.obs;
   late String imageURL;
   late String date2;
+  HomePageController homePageController = Get.find();
+
+  final firebaseMessaging = FirebaseMessaging.instance;
 
   signUp() async {
     if (signUpFormstate.currentState!.validate()) {
@@ -109,7 +114,8 @@ class Auth_Controller extends GetxController {
         } else {
           CacheHelper().saveData(key: "step", value: "3");
           Get.offAllNamed(AppRout.homeScreen);
-          Get.snackbar("success", "welcome");
+          Get.snackbar("welcome", " ");
+          homePageController.getPersonalInfo();
         }
         update();
       } on ServerException catch (e) {
@@ -406,7 +412,7 @@ class Auth_Controller extends GetxController {
     PasswordReset = TextEditingController();
     RePasswordReset = TextEditingController();
     // test();
-
+  
     super.onInit();
   }
 

@@ -29,7 +29,7 @@ class Settings extends StatelessWidget {
                 height: Get.height / 6,
                 color: AppColor.primaryColor,
               ),
-              GetBuilder<homePageController>(
+              GetBuilder<HomePageController>(
                 builder: (controller) => Container(
                   margin: EdgeInsets.only(top: Get.height / 11),
                   child: Center(

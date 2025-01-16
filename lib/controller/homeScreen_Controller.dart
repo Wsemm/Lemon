@@ -32,7 +32,7 @@ class HomeScreenController extends GetxController {
     searchController.searchTextController.clear();
     this.currentPage = currentPage;
     if (this.currentPage == 2) {
-      ordersController.getMyOrders();
+      // ordersController.getMyOrders();
     }
 
     update();

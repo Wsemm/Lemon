@@ -26,7 +26,7 @@ class ProductDetailsController extends GetxController {
       final response = await api.get(
         "${EndPoint.getProducts}/$id",
       );
-      repository.prodcutDetails=response;
+      repository.prodcutDetails = response;
 
       statusRequest = StatusRequest.sucess;
 
@@ -92,11 +92,10 @@ class ProductDetailsController extends GetxController {
       });
 
       statusRequest = StatusRequest.sucess;
-      Get.snackbar("success", "Login success");
+
       update();
     } on ServerException catch (e) {
       serverFailuer(statusRequest = StatusRequest.failuer, e.errModel.message);
-      Get.snackbar("failuer", "{e.errModel.message");
     }
 
     update();

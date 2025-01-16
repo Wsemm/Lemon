@@ -11,7 +11,7 @@ class HomeMade extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ApiDataRepository repository = Get.find();
-    homePageController controller = Get.find();
+    HomePageController controller = Get.find();
     return SafeArea(
         child: Scaffold(
       body: ListView(

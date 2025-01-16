@@ -15,7 +15,7 @@ import '../model/profile_model.dart';
 import 'homePage_Controller.dart';
 
 class UserInfoController extends GetxController {
-  homePageController homePagecontroller = Get.find();
+  HomePageController homePagecontroller = Get.find();
 
   ApiConsumer api = DioConsumer(dio: Dio());
   ApiDataRepository repository = Get.find();

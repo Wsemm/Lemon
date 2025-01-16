@@ -10,13 +10,15 @@ import 'package:lemon/core/api/api/dio_consumer.dart';
 import 'package:lemon/core/cash/cache_helper.dart';
 import 'package:lemon/core/constant/AppImage.dart';
 import 'package:lemon/model/products_model.dart';
+import 'package:lemon/routs.dart';
 import 'package:path/path.dart';
 import '../core/api/api/end_points.dart';
 import '../core/api/errors/exspitions.dart';
 import '../core/class/statusRequest.dart';
+import '../main.dart';
 import '../model/profile_model.dart';
 
-class homePageController extends GetxController {
+class HomePageController extends GetxController {
   int pageIndex = 0;
   int page = 1;
   int limt = 5;
@@ -268,9 +270,43 @@ class homePageController extends GetxController {
     print("Token: $token");
     print(
         "==================================================================================");
+    handleBackgroundNotification();
   }
 
-  Notification() async {
+  //* handle notifications when recieved
+  void handleMessage(RemoteMessage? message) {
+    if (message == null) return;
+    navigatorKey.currentState!.pushNamed(AppRout.homePage, arguments: message);
+  }
+
+  //* handle notifications in case of app is terminated
+  Future handleBackgroundNotification() async {
+    FirebaseMessaging.instance.getInitialMessage().then(handleMessage);
+    FirebaseMessaging.onMessageOpenedApp.listen(handleMessage);
+    // FlutterRingtonePlayer.playNotification();
+  }
+
+  Future<void> notficationCheck() async {
+    if (CacheHelper().getDataString(key: "notfication") != "1") {
+      NotificationSettings settings =
+          await _firebaseMessaging.requestPermission();
+
+      if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+        // User granted permission
+        CacheHelper().saveData(key: "notfication", value: "1");
+      } else if (settings.authorizationStatus ==
+          AuthorizationStatus.provisional) {
+        // User granted provisional permission
+        print('User granted provisional permission');
+      } else {
+        // User denied permission
+        print('User denied permission');
+        await _firebaseMessaging.requestPermission();
+      }
+    }
+  }
+
+  sendNotification() async {
     statusRequest = StatusRequest.loading;
     update();
     try {
@@ -281,7 +317,7 @@ class homePageController extends GetxController {
       });
 
       statusRequest = StatusRequest.sucess;
-      Get.snackbar("success", "Login success");
+      Get.snackbar("success", "Notification has successfully sent");
       update();
     } on ServerException catch (e) {
       serverFailuer(statusRequest = StatusRequest.failuer, e.errModel.message);
@@ -295,13 +331,13 @@ class homePageController extends GetxController {
   void onInit() {
     // pageViewScroll();
     // pageinationData2();
-
     getPersonalInfo();
     getSliders();
     getSection();
     // pageinationData();
     // getProducts(page, limt);
     initNotifications();
+    notficationCheck();
     super.onInit();
   }
 }
