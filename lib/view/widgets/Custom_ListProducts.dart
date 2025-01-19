@@ -62,7 +62,7 @@ class CustomListProducts extends StatelessWidget {
             padding: EdgeInsets.only(
                 top: Get.height * 0.015, left: Get.width * 0.020),
             width: Get.width / 2,
-            height: Get.height * 0.07,
+            height: Get.height * 0.05,
             child: Text(
               "${data[index]["name"]}",
               style: const TextStyle(
@@ -127,9 +127,10 @@ class CustomListProductsStore extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
       width: Get.width,
-      height: Get.height / 4.7,
+      height: Get.height / 4.4,
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+        margin: EdgeInsets.symmetric(
+            vertical: Get.height * 0.005, horizontal: Get.width * 0.010),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Container(
@@ -292,7 +293,7 @@ class CustomListProductsSearch extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
       width: Get.width,
-      height: Get.height / 4.9,
+      height: Get.height / 4.3,
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
         child:

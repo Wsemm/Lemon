@@ -195,7 +195,7 @@ class homePage extends StatelessWidget {
                             left: Get.width * 0.020,
                             right: Get.width * 0.020),
                         width: Get.width - 25,
-                        height: Get.height / 4.5,
+                        height: Get.height / 4.4,
                         child: ListView.builder(
                           // controller: controller.scrollController,
                           scrollDirection: Axis.horizontal,
@@ -237,7 +237,8 @@ class homePage extends StatelessWidget {
                           // controller: controller.scrollController,
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
-                          itemCount: controller.repository.sections[0]["items"].length,
+                          itemCount:
+                              controller.repository.sections[0]["items"].length,
                           itemBuilder: (context, index) => Row(
                             children: [
                               InkWell(

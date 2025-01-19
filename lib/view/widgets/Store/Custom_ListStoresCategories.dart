@@ -33,13 +33,13 @@ class CustomListStoresCategories extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
+              Container(
                 // color: Colors.red,
                 width: Get.width / 5.5,
 
                 // height: 50,
                 child: ClipRRect(
-                  borderRadius: const BorderRadius.only(
+                  borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10)),
                   child: CachedNetworkImage(
@@ -59,6 +59,7 @@ class CustomListStoresCategories extends StatelessWidget {
           ),
         ),
         Container(
+          // height: Get.height * 0.020,
           margin: EdgeInsets.only(
             // bottom: 5,
             left: 10,
@@ -82,7 +83,7 @@ class CustomListStoresCategories extends StatelessWidget {
 }
 
 class CustomListStoresCategoriesSkelton extends StatelessWidget {
-  const CustomListStoresCategoriesSkelton({super.key});
+  const CustomListStoresCategoriesSkelton();
   @override
   Widget build(BuildContext context) {
     ApiDataRepository repository = Get.find();
@@ -104,13 +105,13 @@ class CustomListStoresCategoriesSkelton extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SizedBox(
+              Container(
                 // color: Colors.red,
                 width: Get.width / 5.5,
 
                 // height: 50,
                 child: ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(100)),
+                  borderRadius: BorderRadius.all(Radius.circular(100)),
                   child: Container(
                     height: 50,
                     color: Colors.grey,
@@ -135,10 +136,10 @@ class CustomListStoresCategoriesSkelton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                child: const Text("name",style: TextStyle(color: Colors.grey),
-                    // "${controller.storeCategories[index]["name"]}"
-
-                    ),
+                child: Text(
+                  "name", style: TextStyle(color: Colors.grey),
+                  // "${controller.storeCategories[index]["name"]}"
+                ),
               )
             ],
           ),
