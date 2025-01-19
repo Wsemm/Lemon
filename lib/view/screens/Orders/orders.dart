@@ -26,7 +26,7 @@ class Orders extends StatelessWidget {
             onPressed: () {
               homePageController.sendNotification();
             },
-            child: Text("send notification"),
+            child: const Text("send notification"),
           ))
         ],
       ),

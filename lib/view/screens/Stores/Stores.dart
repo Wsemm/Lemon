@@ -155,7 +155,7 @@ class Stores extends StatelessWidget {
                             const Center(child: Text("No More Data"))
                         ]),
                   )
-                : StoreSkelton()
+                : const StoreSkelton()
           ],
         ),
       ),

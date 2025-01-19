@@ -13,7 +13,7 @@ class CustomOtpTextField extends StatelessWidget {
 
     return OtpTextField(
         // enabledBorderColor: Colors.red,
-        textStyle: TextStyle(color: Colors.white),
+        textStyle: const TextStyle(color: Colors.white),
         cursorColor: Colors.white,
         focusedBorderColor: AppColor.secondColor,
         fieldWidth: Get.width * 0.13,

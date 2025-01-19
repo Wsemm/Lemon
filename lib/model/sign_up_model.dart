@@ -74,35 +74,35 @@ class SignUpModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["name"] = name;
-    _data["phoneNumber"] = phoneNumber;
-    _data["email"] = email;
-    _data["password"] = password;
-    _data["city"] = city;
-    _data["dob"] = dob;
-    _data["tall"] = tall;
-    _data["weight"] = weight;
-    _data["gender"] = gender;
-    _data["skinColor"] = skinColor;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["name"] = name;
+    data["phoneNumber"] = phoneNumber;
+    data["email"] = email;
+    data["password"] = password;
+    data["city"] = city;
+    data["dob"] = dob;
+    data["tall"] = tall;
+    data["weight"] = weight;
+    data["gender"] = gender;
+    data["skinColor"] = skinColor;
     if (skinType != null) {
-      _data["skinType"] = skinType;
+      data["skinType"] = skinType;
     }
-    _data["hairColor"] = hairColor;
+    data["hairColor"] = hairColor;
     if (hairType != null) {
-      _data["hairType"] = hairType;
+      data["hairType"] = hairType;
     }
-    _data["makeupFavColor"] = makeupFavColor;
-    _data["chronicDiseases"] = chronicDiseases;
-    _data["dailyNutritional"] = dailyNutritional;
-    _data["verifiedAt"] = verifiedAt;
-    _data["createdAt"] = createdAt;
-    _data["updatedAt"] = updatedAt;
-    _data["message"] = message;
-    _data["error"] = error;
-    _data["statusCode"] = statusCode;
+    data["makeupFavColor"] = makeupFavColor;
+    data["chronicDiseases"] = chronicDiseases;
+    data["dailyNutritional"] = dailyNutritional;
+    data["verifiedAt"] = verifiedAt;
+    data["createdAt"] = createdAt;
+    data["updatedAt"] = updatedAt;
+    data["message"] = message;
+    data["error"] = error;
+    data["statusCode"] = statusCode;
 
-    return _data;
+    return data;
   }
 }

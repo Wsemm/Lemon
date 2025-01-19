@@ -11,7 +11,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
     Get.put(HomeScreenController());
     return GetBuilder<HomeScreenController>(
       builder: (controller) => Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             color: AppColor.secondColor,
             border: Border(
                 top: BorderSide(width: 3, color: AppColor.primaryColor))),
@@ -27,7 +27,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                     index > controller.listPage.length - 2 ? index - 1 : index;
 
                 return index == 2
-                    ? Spacer()
+                    ? const Spacer()
                     : CustomButtonAppBar(
                         onPressed: () {
                           controller.changePage(i);

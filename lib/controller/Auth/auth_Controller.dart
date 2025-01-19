@@ -267,7 +267,7 @@ class Auth_Controller extends GetxController {
       Get.snackbar(e.errModel.message, e.errModel.message,
           messageText: Text(
             e.errModel.message,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ));
     }
 
@@ -300,8 +300,9 @@ class Auth_Controller extends GetxController {
 
 //   Timer to resend verifycation code
   void startTimer() {
-    if (isButtonDisabled.isTrue)
+    if (isButtonDisabled.isTrue) {
       return; // Prevent starting a new timer if one is already running
+    }
     isButtonDisabled.value = true;
     countdownTime.value = 60;
     update();

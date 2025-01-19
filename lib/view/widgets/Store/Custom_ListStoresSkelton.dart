@@ -11,7 +11,7 @@ class CustomListStoresSkelton extends StatelessWidget {
   Widget build(BuildContext context) {
     ApiDataRepository repository = Get.find();
     return Container(
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         horizontal: 5,
       ),
       child: Card(
@@ -27,18 +27,18 @@ class CustomListStoresSkelton extends StatelessWidget {
               Container(
                 height: Get.height * 0.11,
                 width: Get.width - Get.width * 0.090,
-                color: Color.fromRGBO(221, 221, 221, 1),
+                color: const Color.fromRGBO(221, 221, 221, 1),
               ),
               Container(
                 margin: EdgeInsets.only(top: Get.height * 0.010),
-                child: Row(
+                child: const Row(
                   children: [Text("name")],
                 ),
               ),
               Container(
                 // margin:
                 // EdgeInsets.only(top: Get.height * 0.010),
-                child: Row(
+                child: const Row(
                   children: [
                     Text(
                       "Tag",
@@ -49,7 +49,7 @@ class CustomListStoresSkelton extends StatelessWidget {
               ),
               Container(
                 margin: EdgeInsets.only(top: Get.height * 0.010),
-                child: Row(
+                child: const Row(
                   children: [
                     Text(
                       "id",

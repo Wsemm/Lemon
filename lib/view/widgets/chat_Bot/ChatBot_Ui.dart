@@ -111,7 +111,7 @@ class ChatBotUi extends StatelessWidget {
                           child: ChatBubble(chat: false, text: answers[index]),
                         ),
                         repository.profileModel.avatarUrl == null
-                            ? CircleAvatar(
+                            ? const CircleAvatar(
                                 backgroundImage: AssetImage(
                                 AppImage.user,
                               ))

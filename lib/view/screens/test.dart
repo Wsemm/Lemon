@@ -66,7 +66,7 @@ import 'Stores/Store_Profile.dart';
 class TypingEffectScreenState extends GetxController {
   List names = ["hello how are you", "hello how are he", "hello how are she"];
   // String _displayedText = '';
-  List _displayedText = [""];
+  final List _displayedText = [""];
   final String _fullText = 'What is your favorite color?';
   int _index = 0;
   Timer? _timer;
@@ -79,7 +79,7 @@ class TypingEffectScreenState extends GetxController {
   }
 
   _startTyping(String text) {
-    _timer = Timer.periodic(Duration(milliseconds: 75), (timer) {
+    _timer = Timer.periodic(const Duration(milliseconds: 75), (timer) {
       if (_index < _fullText.length) {
         _displayedText[0] += text[_index];
         _index++;
@@ -109,6 +109,7 @@ class test extends StatelessWidget {
   // final ScrollController? controller;
   // final StatusRequest statusRequest;
   // final String tag, imgUrl;
+  @override
   Widget build(BuildContext context) {
     // Get.put(TypingEffectScreenState());
     return Column(
@@ -147,7 +148,7 @@ class test extends StatelessWidget {
                       5,
                       (index) => InkWell(
                           onTap: () {},
-                          child: CustomListStoresCategoriesSkelton()))
+                          child: const CustomListStoresCategoriesSkelton()))
                 ],
               ),
             ),
@@ -155,7 +156,7 @@ class test extends StatelessWidget {
                 3,
                 (index) => InkWell(
                       onTap: () {},
-                      child: CustomListStoresSkelton(),
+                      child: const CustomListStoresSkelton(),
                     )),
           ]),
         )

@@ -20,7 +20,7 @@ class PersonalInfo extends StatelessWidget {
         child: GetBuilder<Auth_Controller>(
       builder: (controller) => Scaffold(
         appBar: AppBar(
-          title: Center(child: Text("My Profile")),
+          title: const Center(child: Text("My Profile")),
         ),
         body: Form(
           key: controller.profileFormstate,
@@ -38,11 +38,11 @@ class PersonalInfo extends StatelessWidget {
                             color: Colors.grey[350],
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 50),
+                            margin: const EdgeInsets.only(top: 50),
                             width: Get.width,
                             height: Get.height / 6,
                             child: controller.image == null
-                                ? CircleAvatar(
+                                ? const CircleAvatar(
                                     backgroundColor: AppColor.primaryColor,
                                     child: Icon(
                                       Icons.person,
@@ -73,7 +73,7 @@ class PersonalInfo extends StatelessWidget {
                                           controller.pickImage();
                                           // await controller.uploadImage();
                                         },
-                                        icon: Icon(Icons.camera_alt_outlined)),
+                                        icon: const Icon(Icons.camera_alt_outlined)),
                                   )
                                 : null,
                           )
@@ -120,7 +120,7 @@ class PersonalInfo extends StatelessWidget {
                               top: Get.height * 0.18,
                               left: Get.width * 0.020,
                               right: Get.width * 0.020),
-                          child: CircularProgressIndicator())
+                          child: const CircularProgressIndicator())
                       : Container(
                           width: double.infinity,
                           margin: EdgeInsets.only(

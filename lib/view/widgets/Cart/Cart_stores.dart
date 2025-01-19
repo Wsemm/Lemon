@@ -15,7 +15,7 @@ class CartStores extends StatelessWidget {
 
     return Container(
       width: Get.width - 25,
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         horizontal: 5,
       ),
       child: Card(
@@ -42,7 +42,7 @@ class CartStores extends StatelessWidget {
               // ),
               Container(
                 margin: EdgeInsets.only(top: Get.height * 0.010),
-                child: Row(
+                child: const Row(
                   // children: [Text("${data[index]["brand"]}")],
                   children: [Text("brand")],
                 ),
@@ -50,7 +50,7 @@ class CartStores extends StatelessWidget {
               Container(
                 // margin:
                 // EdgeInsets.only(top: Get.height * 0.010),
-                child: Row(
+                child: const Row(
                   children: [
                     Text(
                       "storeId",

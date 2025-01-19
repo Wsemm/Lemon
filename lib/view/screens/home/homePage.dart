@@ -34,8 +34,8 @@ class homePage extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        children: const [
+                      const Row(
+                        children: [
                           Icon(
                             Icons.location_on_outlined,
                             color: Colors.white,
@@ -126,7 +126,7 @@ class homePage extends StatelessWidget {
                                           // color: const Color.fromRGBO(
                                           //     19, 123, 114, 0.2),
                                           color:
-                                              Color.fromRGBO(60, 204, 192, 0.2),
+                                              const Color.fromRGBO(60, 204, 192, 0.2),
 
                                           borderRadius:
                                               BorderRadius.circular(10),
@@ -158,7 +158,7 @@ class homePage extends StatelessWidget {
                                                 //     EdgeInsets.only(top: Get.height * 0.010),
                                                 child: Text(
                                                     "${controller.mainCategories[index]["name"]}",
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         fontWeight:
                                                             FontWeight.bold,
                                                         fontSize: 17)),
@@ -172,7 +172,7 @@ class homePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Divider(thickness: 10),
+                    const Divider(thickness: 10),
                     if (controller.repository.sections != null)
                       Container(
                         // color: Colors.white,
@@ -182,7 +182,7 @@ class homePage extends StatelessWidget {
                           children: [
                             Text(
                               "${controller.repository.sections[2]["title"]}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                           ],
@@ -211,7 +211,7 @@ class homePage extends StatelessWidget {
                                   index: index)),
                         ),
                       ),
-                    Divider(thickness: 10),
+                    const Divider(thickness: 10),
                     if (controller.repository.sections != null)
                       Container(
                         margin: EdgeInsets.only(left: Get.width * 0.020),
@@ -219,7 +219,7 @@ class homePage extends StatelessWidget {
                           children: [
                             Text(
                               "${controller.repository.sections[0]["title"]}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                           ],
@@ -263,7 +263,7 @@ class homePage extends StatelessWidget {
                           ),
                         ),
                       ),
-                    Divider(thickness: 10),
+                    const Divider(thickness: 10),
                     if (controller.searchTextController.text.isNotEmpty)
                       Container(
                         width: 300,
@@ -274,7 +274,7 @@ class homePage extends StatelessWidget {
                           physics: const AlwaysScrollableScrollPhysics(),
                           // controller: controller.scrollController,
                           itemCount: controller.searchData.length,
-                          itemBuilder: (context, index) => Container(
+                          itemBuilder: (context, index) => SizedBox(
                             // margin: EdgeInsets.symmetric(horizontal: Get.width / 4),
 
                             width: 200,
@@ -294,7 +294,7 @@ class homePage extends StatelessWidget {
                           children: [
                             Text(
                               "${controller.repository.sections[1]["title"]}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                           ],
@@ -345,7 +345,7 @@ class homePage extends StatelessWidget {
                           physics: const AlwaysScrollableScrollPhysics(),
                           // controller: controller.scrollController,
                           itemCount: controller.searchData.length,
-                          itemBuilder: (context, index) => Container(
+                          itemBuilder: (context, index) => SizedBox(
                             // margin: EdgeInsets.symmetric(horizontal: Get.width / 4),
 
                             width: 200,

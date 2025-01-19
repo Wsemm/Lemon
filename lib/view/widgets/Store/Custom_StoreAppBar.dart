@@ -11,7 +11,7 @@ class CustomStoreAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     SearchController searchController = Get.find();
     return Container(
-      color: Color.fromRGBO(19, 123, 114, 0.8),
+      color: const Color.fromRGBO(19, 123, 114, 0.8),
       child: Container(
         margin: EdgeInsets.only(top: Get.height * 0.030),
         child: Row(
@@ -24,7 +24,7 @@ class CustomStoreAppBar extends StatelessWidget {
               icon: const Icon(Icons.arrow_back_ios),
               color: Colors.white,
             ),
-            Text(
+            const Text(
               "Stores",
               style: TextStyle(color: Colors.white),
             ),

@@ -12,7 +12,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 
 void main() async {
-  await WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await initialservices();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   CacheHelper().init();

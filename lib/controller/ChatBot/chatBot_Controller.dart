@@ -57,20 +57,20 @@ class ChatBotController extends GetxController {
 
   List names = ["hello how are you", "hello how are he", "hello how are she"];
   // String _displayedText = '';
-  List _displayedText = [""];
+  final List _displayedText = [""];
   final String _fullText = 'What is your favorite color?';
   Timer? _timer;
   int questionIndex = 0;
 
   _startTyping() {
-    Future.delayed(Duration(seconds: 1), () {
-      int _index = 0;
+    Future.delayed(const Duration(seconds: 1), () {
+      int index = 0;
 
-      _timer = Timer.periodic(Duration(milliseconds: 75), (timer) {
+      _timer = Timer.periodic(const Duration(milliseconds: 75), (timer) {
         if (questionIndex <= 12) {
-          if (_index < questions[questionIndex].length) {
-            emptyQuestions[questionIndex] += questions[questionIndex][_index];
-            _index++;
+          if (index < questions[questionIndex].length) {
+            emptyQuestions[questionIndex] += questions[questionIndex][index];
+            index++;
 
             update();
           } else {
@@ -94,7 +94,7 @@ class ChatBotController extends GetxController {
     //   }
     // }
 
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       questionIndex++;
     });
     _startTyping();
@@ -114,18 +114,18 @@ class ChatBotController extends GetxController {
       currentQuestionIndex++;
     }
 
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       loading = false;
       scrollController.animateTo(
         scrollController.position.maxScrollExtent * 3,
-        duration: Duration(milliseconds: 800),
+        duration: const Duration(milliseconds: 800),
         curve: Curves.easeInOutCirc,
       );
       update();
     });
     scrollController.animateTo(
       scrollController.position.maxScrollExtent * 3,
-      duration: Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 800),
       curve: Curves.easeInOutCirc,
     );
     update();

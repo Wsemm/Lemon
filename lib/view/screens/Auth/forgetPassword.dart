@@ -14,7 +14,7 @@ class ForgetPassword extends StatelessWidget {
     Auth_Controller controller = Get.find();
     return Scaffold(
       appBar: AppBar(
-        title: Text("Reset password"),
+        title: const Text("Reset password"),
       ),
       body: Column(
         children: [
@@ -49,7 +49,7 @@ class ForgetPassword extends StatelessWidget {
               onPressed: () {
                 controller.forgetPassword();
               },
-              child: Text("Send"),
+              child: const Text("Send"),
             ),
           )
         ],

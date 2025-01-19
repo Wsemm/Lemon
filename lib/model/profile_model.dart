@@ -35,22 +35,22 @@ class ProfileModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["name"] = name;
-    _data["phoneNumber"] = phoneNumber;
-    _data["email"] = email;
-    _data["password"] = password;
-    _data["city"] = city;
-    _data["dob"] = dob;
-    _data["avatarURL"] = avatarUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["name"] = name;
+    data["phoneNumber"] = phoneNumber;
+    data["email"] = email;
+    data["password"] = password;
+    data["city"] = city;
+    data["dob"] = dob;
+    data["avatarURL"] = avatarUrl;
     if(physicalAttributes != null) {
-      _data["physicalAttributes"] = physicalAttributes?.toJson();
+      data["physicalAttributes"] = physicalAttributes?.toJson();
     }
-    _data["verifiedAt"] = verifiedAt;
-    _data["createdAt"] = createdAt;
-    _data["updatedAt"] = updatedAt;
-    return _data;
+    data["verifiedAt"] = verifiedAt;
+    data["createdAt"] = createdAt;
+    data["updatedAt"] = updatedAt;
+    return data;
   }
 }
 
@@ -86,20 +86,20 @@ class PhysicalAttributes {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["gender"] = gender;
-    _data["height"] = height;
-    _data["weight"] = weight;
-    _data["hairType"] = hairType;
-    _data["skinType"] = skinType;
-    _data["hairColor"] = hairColor;
-    _data["skinColor"] = skinColor;
-    _data["makeupFavColor"] = makeupFavColor;
-    _data["chronicDiseases"] = chronicDiseases;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["gender"] = gender;
+    data["height"] = height;
+    data["weight"] = weight;
+    data["hairType"] = hairType;
+    data["skinType"] = skinType;
+    data["hairColor"] = hairColor;
+    data["skinColor"] = skinColor;
+    data["makeupFavColor"] = makeupFavColor;
+    data["chronicDiseases"] = chronicDiseases;
     if(dailyNutritional != null) {
-      _data["dailyNutritional"] = dailyNutritional?.toJson();
+      data["dailyNutritional"] = dailyNutritional?.toJson();
     }
-    return _data;
+    return data;
   }
 }
 
@@ -123,11 +123,11 @@ class DailyNutritional {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["fat"] = fat;
-    _data["carbs"] = carbs;
-    _data["protein"] = protein;
-    _data["calories"] = calories;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["fat"] = fat;
+    data["carbs"] = carbs;
+    data["protein"] = protein;
+    data["calories"] = calories;
+    return data;
   }
 }

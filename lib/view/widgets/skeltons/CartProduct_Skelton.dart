@@ -24,7 +24,7 @@ class CartProductSkelton extends StatelessWidget {
           Expanded(
               flex: 4,
               child: Container(
-                margin: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
                 color: Colors.grey[350],
                 height: double.infinity,
               )),
@@ -40,16 +40,16 @@ class CartProductSkelton extends StatelessWidget {
                             bottom: Get.height * 0.020,
                             top: Get.height * 0.010,
                             left: Get.width * 0.020),
-                        child: Text(
+                        child: const Text(
                           "name",
                           style: TextStyle(color: Colors.grey),
                         )),
                     Container(
                         alignment: Alignment.topLeft,
                         margin: EdgeInsets.only(left: Get.width * 0.020),
-                        child: Text(
+                        child: const Text(
                           "price",
-                          style: const TextStyle(color: Colors.grey),
+                          style: TextStyle(color: Colors.grey),
                         )),
                   ],
                 ),
@@ -69,9 +69,9 @@ class CartProductSkelton extends StatelessWidget {
                       margin: EdgeInsets.symmetric(
                         horizontal: Get.width * 0.010,
                       ),
-                      child: Text(
+                      child: const Text(
                         "quantity",
-                        style: const TextStyle(color: Colors.grey),
+                        style: TextStyle(color: Colors.grey),
                       ),
                     ),
                     InkWell(

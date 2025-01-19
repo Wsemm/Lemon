@@ -29,7 +29,7 @@ class StoreSkelton extends StatelessWidget {
                       5,
                       (index) => InkWell(
                           onTap: () {},
-                          child: CustomListStoresCategoriesSkelton()))
+                          child: const CustomListStoresCategoriesSkelton()))
                 ],
               ),
             ),
@@ -37,7 +37,7 @@ class StoreSkelton extends StatelessWidget {
                 3,
                 (index) => InkWell(
                       onTap: () {},
-                      child: CustomListStoresSkelton(),
+                      child: const CustomListStoresSkelton(),
                     )),
           ]),
         )

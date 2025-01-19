@@ -26,7 +26,7 @@ class verifyEmail extends StatelessWidget {
                     children: [
                       Container(
                         margin: EdgeInsets.only(top: Get.height * 0.010),
-                        child: (Text(
+                        child: (const Text(
                           "Verify Your Email",
                           style: TextStyle(fontSize: 25, color: Colors.white),
                         )),
@@ -37,7 +37,7 @@ class verifyEmail extends StatelessWidget {
                               ? Get.height * 0.050
                               : Get.height / 5,
                         ),
-                        child: (Text(
+                        child: (const Text(
                           "please Enter  the code  you recived",
                           style: TextStyle(fontSize: 22, color: Colors.white),
                         )),
@@ -55,7 +55,7 @@ class verifyEmail extends StatelessWidget {
                       if (controller.statusRequest == StatusRequest.loading)
                         Container(
                           margin: EdgeInsets.only(top: Get.height * 0.020),
-                          child: CircularProgressIndicator(
+                          child: const CircularProgressIndicator(
                             color: AppColor.secondColor,
                           ),
                         ),
@@ -98,7 +98,7 @@ class verifyEmail extends StatelessWidget {
                                   onPressed: () {
                                     controller.resetPassword(controller.otp);
                                   },
-                                  child: Text(
+                                  child: const Text(
                                     "Submit",
                                     style: TextStyle(color: Colors.white),
                                   ),
@@ -116,7 +116,7 @@ class verifyEmail extends StatelessWidget {
                           color: AppColor.secondColor,
                           shape: OutlineInputBorder(
                               borderSide:
-                                  BorderSide(color: AppColor.secondColor),
+                                  const BorderSide(color: AppColor.secondColor),
                               borderRadius: BorderRadius.circular(20)),
                           onPressed: () {
                             controller.isButtonDisabled.isFalse
@@ -129,7 +129,7 @@ class verifyEmail extends StatelessWidget {
                             controller.isButtonDisabled.isTrue
                                 ? 'Try again in  ${controller.countdownTime.value}s'
                                 : 'Resend Verification Code',
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ),
                       ),

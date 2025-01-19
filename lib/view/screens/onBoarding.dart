@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lemon/controller/onBoarding/onBoarding_Controller.dart';
 
-import '../../core/constant/AppColor.dart';
 import '../../core/constant/AppImage.dart';
 import '../widgets/onBoarding/onBoarding_Slider.dart';
 

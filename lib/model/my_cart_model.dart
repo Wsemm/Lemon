@@ -17,13 +17,13 @@ class MyCartModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["message"] = message;
-    _data["statusCode"] = statusCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["message"] = message;
+    data["statusCode"] = statusCode;
     if(data != null) {
-      _data["data"] = data?.map((e) => e.toJson()).toList();
+      data["data"] = data?.map((e) => e.toJson()).toList();
     }
-    return _data;
+    return data;
   }
 }
 
@@ -49,15 +49,15 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["userId"] = userId;
-    _data["storeId"] = storeId;
-    _data["totalAmount"] = totalAmount;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["userId"] = userId;
+    data["storeId"] = storeId;
+    data["totalAmount"] = totalAmount;
     if(cartItems != null) {
-      _data["cartItems"] = cartItems?.map((e) => e.toJson()).toList();
+      data["cartItems"] = cartItems?.map((e) => e.toJson()).toList();
     }
-    return _data;
+    return data;
   }
 }
 
@@ -87,14 +87,14 @@ class CartItems {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["cartId"] = cartId;
-    _data["productId"] = productId;
-    _data["productName"] = productName;
-    _data["productImageURL"] = productImageUrl;
-    _data["price"] = price;
-    _data["quantity"] = quantity;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["cartId"] = cartId;
+    data["productId"] = productId;
+    data["productName"] = productName;
+    data["productImageURL"] = productImageUrl;
+    data["price"] = price;
+    data["quantity"] = quantity;
+    return data;
   }
 }

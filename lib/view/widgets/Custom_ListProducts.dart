@@ -27,7 +27,7 @@ class CustomListProducts extends StatelessWidget {
               color: Colors.black.withOpacity(0.2), // Shadow color
               spreadRadius: 5, // Spread radius
               blurRadius: 7, // Blur radius
-              offset: Offset(0, 3), // Offset of the shadow
+              offset: const Offset(0, 3), // Offset of the shadow
             ),
           ],
           // color: Colors.grey[350]
@@ -129,7 +129,7 @@ class CustomListProductsStore extends StatelessWidget {
       width: Get.width,
       height: Get.height / 4.7,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Container(
@@ -140,13 +140,13 @@ class CustomListProductsStore extends StatelessWidget {
             margin: EdgeInsets.only(top: Get.height * 0.001),
             child: Column(
               children: [
-                Container(
+                SizedBox(
                   height: Get.width * 0.1,
                   child: Text(
                     list == 1
                         ? "${data[index]["name"]}"
                         : "${data!.products![index].name}",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                 ),
                 Container(
@@ -156,11 +156,11 @@ class CustomListProductsStore extends StatelessWidget {
                     list == 1
                         ? "${data[index]["description"]}"
                         : "${data!.products![index].description}",
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.grey),
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: Get.height * 0.040,
                   // margin: EdgeInsets.only(top: Get.height * 0.010),
                   child: Row(
@@ -169,7 +169,7 @@ class CustomListProductsStore extends StatelessWidget {
                         list == 1
                             ? "${data![index]["price"]} \$"
                             : "${formatNumber(data!.products![index].price)} \$",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
                             color: AppColor.primaryColor),
@@ -294,7 +294,7 @@ class CustomListProductsSearch extends StatelessWidget {
       width: Get.width,
       height: Get.height / 4.9,
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Container(
@@ -312,7 +312,7 @@ class CustomListProductsSearch extends StatelessWidget {
                         "${data[index]["name"]}",
                         // "${data![index].name}",
 
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 15),
                       ),
                     ],
@@ -325,7 +325,7 @@ class CustomListProductsSearch extends StatelessWidget {
                     "${data[index]["description"]}",
                     // "${data![index]["description"]}",
 
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.grey),
                   ),
                 ),
@@ -337,7 +337,7 @@ class CustomListProductsSearch extends StatelessWidget {
                         // "${data!.products![index].price} \$",
                         "${formatNumber(data![index]["price"])} \$",
 
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
                             color: AppColor.primaryColor),

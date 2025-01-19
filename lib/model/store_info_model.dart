@@ -33,23 +33,23 @@ class StoreInfoModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["userId"] = userId;
-    _data["brand"] = brand;
-    _data["bio"] = bio;
-    _data["coverURL"] = coverUrl;
-    _data["avatarURL"] = avatarUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["userId"] = userId;
+    data["brand"] = brand;
+    data["bio"] = bio;
+    data["coverURL"] = coverUrl;
+    data["avatarURL"] = avatarUrl;
     if(workHours != null) {
-      _data["workHours"] = workHours?.toJson();
+      data["workHours"] = workHours?.toJson();
     }
-    _data["createdAt"] = createdAt;
-    _data["updatedAt"] = updatedAt;
-    _data["deletedAt"] = deletedAt;
+    data["createdAt"] = createdAt;
+    data["updatedAt"] = updatedAt;
+    data["deletedAt"] = deletedAt;
     if(products != null) {
-      _data["products"] = products?.map((e) => e.toJson()).toList();
+      data["products"] = products?.map((e) => e.toJson()).toList();
     }
-    return _data;
+    return data;
   }
 }
 
@@ -91,43 +91,41 @@ class Products {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["storeId"] = storeId;
-    _data["name"] = name;
-    _data["description"] = description;
-    _data["price"] = price;
-    _data["stock"] = stock;
-    _data["productType"] = productType;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["storeId"] = storeId;
+    data["name"] = name;
+    data["description"] = description;
+    data["price"] = price;
+    data["stock"] = stock;
+    data["productType"] = productType;
     if(productProperty != null) {
-      _data["productProperty"] = productProperty?.toJson();
+      data["productProperty"] = productProperty?.toJson();
     }
     if(tags != null) {
-      _data["tags"] = tags;
+      data["tags"] = tags;
     }
-    _data["imageURL"] = imageUrl;
-    _data["isPublished"] = isPublished;
-    _data["createdAt"] = createdAt;
-    _data["updatedAt"] = updatedAt;
-    return _data;
+    data["imageURL"] = imageUrl;
+    data["isPublished"] = isPublished;
+    data["createdAt"] = createdAt;
+    data["updatedAt"] = updatedAt;
+    return data;
   }
 }
 
 class ProductProperty {
   ProductProperty();
 
-  ProductProperty.fromJson(Map<String, dynamic> json) {
-
-  }
+  ProductProperty.fromJson(Map<String, dynamic> json);
 
   static List<ProductProperty> fromList(List<Map<String, dynamic>> list) {
     return list.map(ProductProperty.fromJson).toList();
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
 
-    return _data;
+    return data;
   }
 }
 
@@ -157,29 +155,29 @@ class WorkHours {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     if(fri != null) {
-      _data["fri"] = fri?.toJson();
+      data["fri"] = fri?.toJson();
     }
     if(mon != null) {
-      _data["mon"] = mon?.toJson();
+      data["mon"] = mon?.toJson();
     }
     if(sat != null) {
-      _data["sat"] = sat?.toJson();
+      data["sat"] = sat?.toJson();
     }
     if(sun != null) {
-      _data["sun"] = sun?.toJson();
+      data["sun"] = sun?.toJson();
     }
     if(tue != null) {
-      _data["tue"] = tue?.toJson();
+      data["tue"] = tue?.toJson();
     }
     if(wed != null) {
-      _data["wed"] = wed?.toJson();
+      data["wed"] = wed?.toJson();
     }
     if(thur != null) {
-      _data["thur"] = thur?.toJson();
+      data["thur"] = thur?.toJson();
     }
-    return _data;
+    return data;
   }
 }
 
@@ -199,10 +197,10 @@ class Thur {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["endTime"] = endTime;
-    _data["startTime"] = startTime;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["endTime"] = endTime;
+    data["startTime"] = startTime;
+    return data;
   }
 }
 
@@ -222,10 +220,10 @@ class Wed {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["endTime"] = endTime;
-    _data["startTime"] = startTime;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["endTime"] = endTime;
+    data["startTime"] = startTime;
+    return data;
   }
 }
 
@@ -245,10 +243,10 @@ class Tue {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["endTime"] = endTime;
-    _data["startTime"] = startTime;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["endTime"] = endTime;
+    data["startTime"] = startTime;
+    return data;
   }
 }
 
@@ -268,10 +266,10 @@ class Sun {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["endTime"] = endTime;
-    _data["startTime"] = startTime;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["endTime"] = endTime;
+    data["startTime"] = startTime;
+    return data;
   }
 }
 
@@ -291,10 +289,10 @@ class Sat {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["endTime"] = endTime;
-    _data["startTime"] = startTime;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["endTime"] = endTime;
+    data["startTime"] = startTime;
+    return data;
   }
 }
 
@@ -314,10 +312,10 @@ class Mon {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["endTime"] = endTime;
-    _data["startTime"] = startTime;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["endTime"] = endTime;
+    data["startTime"] = startTime;
+    return data;
   }
 }
 
@@ -337,9 +335,9 @@ class Fri {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["endTime"] = endTime;
-    _data["startTime"] = startTime;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["endTime"] = endTime;
+    data["startTime"] = startTime;
+    return data;
   }
 }

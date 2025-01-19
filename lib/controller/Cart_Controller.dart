@@ -111,15 +111,15 @@ class CartController extends GetxController {
       final response = await api.post(EndPoint.orderCheckOut, data: {
         "storeId": storeId,
         "deliveryDetails": {
-          "phoneNumber": "$phoneNumber",
-          "customerName": "$customerName",
-          "city": "$city",
-          "addressLine": "$addressLine"
+          "phoneNumber": phoneNumber,
+          "customerName": customerName,
+          "city": city,
+          "addressLine": addressLine
         },
         "cartItems": [
           {
             "productId": productId,
-            "productName": "$productName",
+            "productName": productName,
             "price": price,
             "quantity": quantity
           }

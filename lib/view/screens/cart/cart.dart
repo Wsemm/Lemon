@@ -46,7 +46,7 @@ class Cart extends StatelessWidget {
       ),
       appBar: AppBar(title: const Text("My Cart")),
       body: GetBuilder<CartController>(
-        builder: (controller) => Container(
+        builder: (controller) => SizedBox(
           height: Get.height - Get.height * 0.18,
           child: ListView.builder(
             shrinkWrap: true,
@@ -54,7 +54,7 @@ class Cart extends StatelessWidget {
                 ? 1 //repository.myCart.data!.length
                 : 6,
             itemBuilder: (context, index) => repository.myCart.data == null
-                ? CartProductSkelton()
+                ? const CartProductSkelton()
                 : Dismissible(
                     background: Container(
                       margin: EdgeInsets.symmetric(
@@ -64,7 +64,7 @@ class Cart extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.red,
                           borderRadius: BorderRadius.circular(10)),
-                      child: Icon(
+                      child: const Icon(
                         Icons.delete_outline_outlined,
                         size: 30,
                       ),

@@ -19,7 +19,7 @@ class HomeMade extends StatelessWidget {
         shrinkWrap: true,
 
         children: [
-          Container(
+          SizedBox(
             width: Get.width,
             child: Image.asset(
               AppImage.homeMade,
@@ -39,7 +39,7 @@ class HomeMade extends StatelessWidget {
                     mainAxisExtent: Get.height / 3.6,
                     crossAxisCount: 2),
                 itemBuilder: (context, index) => Container(
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       child: CustomListProducts(
                           data: repository.productsModel, index: index),
                     )),

@@ -105,11 +105,11 @@ class HomePageController extends GetxController {
       pageIndex = 0;
     }
     while (pageIndex != 10) {
-      Future.delayed(Duration(seconds: 3), () {
+      Future.delayed(const Duration(seconds: 3), () {
         print(":dsa");
         ++pageIndex;
         pageController.animateToPage(pageIndex,
-            duration: Duration(milliseconds: 500), curve: Curves.linear);
+            duration: const Duration(milliseconds: 500), curve: Curves.linear);
 
         update();
       });
@@ -122,7 +122,7 @@ class HomePageController extends GetxController {
     update();
     try {
       final response = await api.get(EndPoint.getProducts, queryParameters: {
-        "search": "${searchTextController.text}",
+        "search": searchTextController.text,
         "page": 1,
         "limit": 5
       });
@@ -212,7 +212,7 @@ class HomePageController extends GetxController {
       repository.saveData(ProfileModel, profileModel);
 
       update();
-    } on ServerException catch (e) {
+    } on ServerException {
       update();
     }
   }

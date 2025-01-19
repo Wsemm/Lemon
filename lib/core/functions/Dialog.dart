@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../routs.dart';
 import '../constant/AppColor.dart';
 
 myShowDialog(String title, middleText, leftButtonTitle, rightButtonTitle,

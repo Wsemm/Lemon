@@ -50,7 +50,7 @@ class UserProfile extends StatelessWidget {
                                     left: Get.width * 0.040),
                                 child: repository.profileModel.avatarUrl == null
                                     ? controller.image == null
-                                        ? Hero(
+                                        ? const Hero(
                                             tag: "profilePic",
                                             child: CircleAvatar(
                                               maxRadius: 55,
@@ -128,7 +128,7 @@ class UserProfile extends StatelessWidget {
                                 top: Get.height * 0.18,
                                 left: Get.width * 0.020,
                                 right: Get.width * 0.020),
-                            child: CircularProgressIndicator())
+                            child: const CircularProgressIndicator())
                         : Container(
                             width: double.infinity,
                             margin: EdgeInsets.only(

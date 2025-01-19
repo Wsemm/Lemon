@@ -31,37 +31,35 @@ class StoresModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["userId"] = userId;
-    _data["brand"] = brand;
-    _data["bio"] = bio;
-    _data["avatarURL"] = avatarUrl;
-    _data["coverURL"] = coverUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["userId"] = userId;
+    data["brand"] = brand;
+    data["bio"] = bio;
+    data["avatarURL"] = avatarUrl;
+    data["coverURL"] = coverUrl;
     if(workHours != null) {
-      _data["workHours"] = workHours?.toJson();
+      data["workHours"] = workHours?.toJson();
     }
-    _data["updatedAt"] = updatedAt;
-    _data["createdAt"] = createdAt;
-    _data["deletedAt"] = deletedAt;
-    return _data;
+    data["updatedAt"] = updatedAt;
+    data["createdAt"] = createdAt;
+    data["deletedAt"] = deletedAt;
+    return data;
   }
 }
 
 class WorkHours {
   WorkHours();
 
-  WorkHours.fromJson(Map<String, dynamic> json) {
-
-  }
+  WorkHours.fromJson(Map<String, dynamic> json);
 
   static List<WorkHours> fromList(List<Map<String, dynamic>> list) {
     return list.map(WorkHours.fromJson).toList();
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
 
-    return _data;
+    return data;
   }
 }

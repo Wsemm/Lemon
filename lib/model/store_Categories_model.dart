@@ -17,13 +17,13 @@ class StoreCategories_model {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["message"] = message;
-    _data["statusCode"] = statusCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["message"] = message;
+    data["statusCode"] = statusCode;
     if(data != null) {
-      _data["data"] = data?.map((e) => e.toJson()).toList();
+      data["data"] = data?.map((e) => e.toJson()).toList();
     }
-    return _data;
+    return data;
   }
 }
 
@@ -45,10 +45,10 @@ class Data {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> _data = <String, dynamic>{};
-    _data["id"] = id;
-    _data["name"] = name;
-    _data["iconPath"] = iconPath;
-    return _data;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data["id"] = id;
+    data["name"] = name;
+    data["iconPath"] = iconPath;
+    return data;
   }
 }

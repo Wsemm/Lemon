@@ -10,8 +10,8 @@ enum StatusRequest {
 
 serverFailuer(statusRequest,message) {
   print("=============================================");
-  print("message:${message}");
-  print("statusRequest:${statusRequest}");
+  print("message:$message");
+  print("statusRequest:$statusRequest");
   print("=============================================");
 
 }

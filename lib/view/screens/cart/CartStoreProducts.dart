@@ -15,7 +15,7 @@ class CartStoreProducts extends StatelessWidget {
     ApiDataRepository repository = Get.find();
     return GetBuilder<CartController>(
       builder: (controller) => Scaffold(
-        body: Container(
+        body: SizedBox(
           height: Get.height - Get.height * 0.18,
           child: ListView.builder(
             shrinkWrap: true,
@@ -23,7 +23,7 @@ class CartStoreProducts extends StatelessWidget {
                 ? 1 //repository.myCart.data!.length
                 : 6,
             itemBuilder: (context, index) => repository.myCart.data == null
-                ? CartProductSkelton()
+                ? const CartProductSkelton()
                 : Dismissible(
                     background: Container(
                       margin: EdgeInsets.symmetric(
@@ -33,7 +33,7 @@ class CartStoreProducts extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.red,
                           borderRadius: BorderRadius.circular(10)),
-                      child: Icon(
+                      child: const Icon(
                         Icons.delete_outline_outlined,
                         size: 30,
                       ),

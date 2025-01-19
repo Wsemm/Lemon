@@ -48,7 +48,7 @@ class StoreController extends GetxController {
       statusRequest = StatusRequest.sucess;
 
       update();
-    } on ServerException catch (e) {
+    } on ServerException {
       serverFailuer(
           statusRequest = StatusRequest.failuer, "e.errModel.message");
       Get.snackbar("failuer", "e.errModel.message");
@@ -76,7 +76,7 @@ class StoreController extends GetxController {
       statusRequest = StatusRequest.sucess;
 
       update();
-    } on ServerException catch (e) {
+    } on ServerException {
       serverFailuer(
           statusRequest = StatusRequest.failuer, "e.errModel.message");
       Get.snackbar("failuer", "e.errModel.message");
@@ -113,7 +113,7 @@ class StoreController extends GetxController {
       // print("aaaaaaaaaaa ${repository.storesModelById}aaaaa");
 
       update();
-    } on ServerException catch (e) {
+    } on ServerException {
       serverFailuer(
           statusRequest = StatusRequest.failuer, "e.errModel.message");
       Get.snackbar("failuer", "e.errModel.message");

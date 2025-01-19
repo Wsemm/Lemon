@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 
 import 'package:get/get.dart';
 import '../model/login_model.dart';

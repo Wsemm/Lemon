@@ -12,7 +12,7 @@ class OnBoarding_Controller extends GetxController {
   next() {
     ++currentPage;
     pageController.animateToPage(currentPage,
-        duration: Duration(milliseconds: 500), curve: Curves.linear);
+        duration: const Duration(milliseconds: 500), curve: Curves.linear);
   }
 
   @override

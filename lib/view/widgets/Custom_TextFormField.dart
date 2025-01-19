@@ -6,7 +6,7 @@ import 'package:lemon/core/functions/validator.dart';
 import '../../core/constant/AppColor.dart';
 
 class Custom_TextFormField extends StatelessWidget {
-  Custom_TextFormField({
+  const Custom_TextFormField({
     super.key,
     required this.prefixImage,
     required this.text,
@@ -42,7 +42,7 @@ class Custom_TextFormField extends StatelessWidget {
           top: Get.height * 0.020,
         ),
         decoration: BoxDecoration(
-          border: Border.all(color: Color.fromARGB(255, 245, 245, 245)),
+          border: Border.all(color: const Color.fromARGB(255, 245, 245, 245)),
           color: Colors.grey[200],
           borderRadius: BorderRadius.circular(20),
         ),
@@ -54,7 +54,7 @@ class Custom_TextFormField extends StatelessWidget {
           decoration: InputDecoration(
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: AppColor.secondColor),
+              borderSide: const BorderSide(color: AppColor.secondColor),
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),

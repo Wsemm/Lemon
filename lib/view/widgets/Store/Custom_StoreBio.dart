@@ -36,7 +36,7 @@ class bio extends StatelessWidget {
                             controller.details == "filteredStore"
                         ? data["brand"]
                         : "${data[controller.storeId]["brand"]}",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ),
               ],
@@ -69,7 +69,7 @@ class bio extends StatelessWidget {
                                 controller.details == "filteredStore"
                             ? "${data["workHours"]["fri"]["startTime"]} AM  -"
                             : "${data[controller.storeId]["workHours"]["fri"]["startTime"]} AM  -",
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       Container(
@@ -78,7 +78,7 @@ class bio extends StatelessWidget {
                                   controller.details == "filteredStore"
                               ? "${data["workHours"]["fri"]["endTime"]} PM"
                               : "  ${data[controller.storeId]["workHours"]["fri"]["endTime"]} PM",
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                       )
@@ -88,7 +88,7 @@ class bio extends StatelessWidget {
               ],
             ),
           ),
-          Divider(
+          const Divider(
             color: Colors.grey,
             thickness: 1,
           ),

@@ -41,7 +41,7 @@ class CustomProductDetails extends StatelessWidget {
         ),
         Stack(
           children: [
-            Container(
+            SizedBox(
               width: Get.width,
               height: Get.height * 0.3,
               child: Hero(

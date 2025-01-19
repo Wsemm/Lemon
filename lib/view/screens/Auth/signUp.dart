@@ -155,7 +155,7 @@ class SignUP extends StatelessWidget {
                         vertical: 20, horizontal: Get.width / 4.2),
                     child: Row(
                       children: [
-                        Text(
+                        const Text(
                           "Al ready have account? ",
                           style: TextStyle(color: Colors.grey),
                         ),
@@ -165,7 +165,7 @@ class SignUP extends StatelessWidget {
                             Get.offNamed(AppRout.login);
                             // controller.pickImage();
                           },
-                          child: Text(
+                          child: const Text(
                             "Login",
                             style: TextStyle(color: AppColor.secondColor),
                           ),
@@ -175,14 +175,14 @@ class SignUP extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.only(bottom: Get.height * 0.020),
-                    child: Center(
+                    child: const Center(
                       child: Text("OR"),
                     ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Join as ",
                         style: TextStyle(fontSize: 18),
                       ),
@@ -192,7 +192,7 @@ class SignUP extends StatelessWidget {
                           CacheHelper().saveData(key: "step", value: "4");
                           // Get.put(ApiDataRepository());
                         },
-                        child: Text(
+                        child: const Text(
                           "Guest",
                           style: TextStyle(
                               fontSize: 18, color: AppColor.secondColor),

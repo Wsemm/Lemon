@@ -35,7 +35,7 @@ class Settings extends StatelessWidget {
                   child: Center(
                     child: CacheHelper().getData(key: "step") != "4"
                         ? repository.profileModel.avatarUrl == null
-                            ? Hero(
+                            ? const Hero(
                                 tag: "profilePic",
                                 child: CircleAvatar(
                                   maxRadius: 55,
@@ -50,7 +50,7 @@ class Settings extends StatelessWidget {
                                       repository.profileModel.avatarUrl!),
                                 ),
                               )
-                        : Hero(
+                        : const Hero(
                             tag: "profilePic",
                             child: CircleAvatar(
                               maxRadius: 55,
@@ -63,13 +63,13 @@ class Settings extends StatelessWidget {
             ],
           ),
           Container(
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             child: Card(
                 child: Column(
               children: [
                 ListTile(
                   onTap: () {},
-                  title: Text("Disable notfication"),
+                  title: const Text("Disable notfication"),
                   trailing: Switch(
                     value: true,
                     onChanged: (val) {},
@@ -80,36 +80,36 @@ class Settings extends StatelessWidget {
                   onTap: () {
                     controller.goToUserProfile();
                   },
-                  title: Text("My Profile"),
-                  trailing: Icon(Icons.person),
+                  title: const Text("My Profile"),
+                  trailing: const Icon(Icons.person),
                 ),
                 ListTile(
                   onTap: () {},
-                  title: Text("Adress"),
-                  trailing: Icon(Icons.location_on),
+                  title: const Text("Adress"),
+                  trailing: const Icon(Icons.location_on),
                 ),
                 ListTile(
                   onTap: () {
                     // controller.testData.getData2();
                   },
-                  title: Text("About us"),
-                  trailing: Icon(Icons.info_outline),
+                  title: const Text("About us"),
+                  trailing: const Icon(Icons.info_outline),
                 ),
                 // Divider(),
                 ListTile(
                   onTap: () {
                     // launchUrl(Uri.parse("tel:+963 0936393564"));
                   },
-                  title: Text("Contact us"),
-                  trailing: Icon(Icons.phone),
+                  title: const Text("Contact us"),
+                  trailing: const Icon(Icons.phone),
                 ),
                 // Divider(),
                 ListTile(
                   onTap: () {
                     controller.logout();
                   },
-                  title: Text("Logout"),
-                  trailing: Icon(Icons.logout),
+                  title: const Text("Logout"),
+                  trailing: const Icon(Icons.logout),
                 ),
               ],
             )),

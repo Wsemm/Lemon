@@ -12,7 +12,7 @@ class CustomListStores extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width - 25,
-      margin: EdgeInsets.symmetric(
+      margin: const EdgeInsets.symmetric(
         horizontal: 5,
       ),
       child: Card(
@@ -46,7 +46,7 @@ class CustomListStores extends StatelessWidget {
               Container(
                 // margin:
                 // EdgeInsets.only(top: Get.height * 0.010),
-                child: Row(
+                child: const Row(
                   children: [
                     Text(
                       "Tag",

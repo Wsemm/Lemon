@@ -95,7 +95,7 @@ class Login extends StatelessWidget {
                           onTap: () {
                             Get.toNamed(AppRout.forgetPassword);
                           },
-                          child: Text(
+                          child: const Text(
                             "Forget Password?",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -125,7 +125,7 @@ class Login extends StatelessWidget {
                               left: Get.width / 4, top: Get.height * 0.020),
                           child: Row(
                             children: [
-                              Text(
+                              const Text(
                                 "Don't have an account? ",
                                 style: TextStyle(color: Colors.grey),
                               ),
@@ -133,7 +133,7 @@ class Login extends StatelessWidget {
                                 onTap: () {
                                   Get.offNamed(AppRout.signUP);
                                 },
-                                child: Text(
+                                child: const Text(
                                   "SignUp",
                                   style: TextStyle(color: AppColor.secondColor),
                                 ),

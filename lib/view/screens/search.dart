@@ -60,7 +60,7 @@ class Search extends StatelessWidget {
                               Icons.search,
                             )),
                       ),
-                      suffixIcon: Container(
+                      suffixIcon: SizedBox(
                         // margin: EdgeInsets.only(right: Get.width * 0.2),
                         width: 85,
 
@@ -199,13 +199,13 @@ class Search extends StatelessWidget {
                             ? Column(
                                 children: [
                                   Container(
-                                    child: CircularProgressIndicator(),
+                                    child: const CircularProgressIndicator(),
                                   )
                                 ],
                               )
                             : controller.isStoreEmpty == 0
                                 ? SingleChildScrollView(
-                                    child: Container(
+                                    child: SizedBox(
                                       height: Get.height / 4,
                                       child: Column(
                                         children: [
@@ -249,8 +249,8 @@ class Search extends StatelessWidget {
                                                         Container(
                                                           // margin:
                                                           // EdgeInsets.only(top: Get.height * 0.010),
-                                                          child: Row(
-                                                            children: const [
+                                                          child: const Row(
+                                                            children: [
                                                               Text(
                                                                 "Tag",
                                                                 style: TextStyle(
@@ -282,7 +282,7 @@ class Search extends StatelessWidget {
                                 : Container(
                                     margin:
                                         EdgeInsets.only(top: Get.height / 8),
-                                    child: Column(
+                                    child: const Column(
                                       children: [
                                         Icon(
                                           Icons.not_interested_sharp,
@@ -305,7 +305,7 @@ class Search extends StatelessWidget {
                             ? Column(
                                 children: [
                                   Container(
-                                    child: CircularProgressIndicator(),
+                                    child: const CircularProgressIndicator(),
                                   )
                                 ],
                               )
@@ -345,7 +345,7 @@ class Search extends StatelessWidget {
                                 : Container(
                                     margin:
                                         EdgeInsets.only(top: Get.height / 8),
-                                    child: Column(
+                                    child: const Column(
                                       children: [
                                         Icon(
                                           Icons.not_interested_sharp,

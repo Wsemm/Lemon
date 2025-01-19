@@ -7,7 +7,7 @@ import '../../../core/constant/AppColor.dart';
 import '../../../core/constant/AppImage.dart';
 
 class CustomCartProductds extends StatelessWidget {
-  CustomCartProductds({
+  const CustomCartProductds({
     super.key,
     required this.data,
     required this.productsQuantity,
@@ -35,7 +35,7 @@ class CustomCartProductds extends StatelessWidget {
         children: [
           Expanded(
               flex: 4,
-              child: Container(
+              child: SizedBox(
                 height: double.infinity,
                 child: CachedNetworkImage(
                     imageUrl: "${data[index].cartItems![index].productImageUrl}"),

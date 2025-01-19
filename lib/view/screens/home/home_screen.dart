@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
 
           onPressed: () {},
           // child: const Icon(Icons.shopping_basket_outlined),
-          child: CircleAvatar(
+          child: const CircleAvatar(
             backgroundImage: AssetImage(AppImage.robot),
           ),
         ),

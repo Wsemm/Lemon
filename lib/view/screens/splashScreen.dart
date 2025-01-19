@@ -17,9 +17,10 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   // @override
+  @override
   void initState() {
     // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    Future.delayed(Duration(milliseconds: 2500), () {
+    Future.delayed(const Duration(milliseconds: 2500), () {
       Get.offNamed(AppRout.splashScreen);
     });
     super.initState();
@@ -46,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
       backgroundColor: Colors.grey.shade400,
       showLoader: true,
       loaderColor: AppColor.primaryColor,
-      loadingText: Text("Loading..."),
+      loadingText: const Text("Loading..."),
       // navigator:
       //     CacheHelper().getData(key: "step") == "1" ? SignUP() : homePage(),
       durationInSeconds: 2,

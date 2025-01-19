@@ -21,7 +21,7 @@ class handlingRequestStatus extends StatelessWidget {
     return statusRequest == StatusRequest.loading
         ? customWidget == 1
             ? secondWidget!
-            : Center(
+            : const Center(
                 child: CircularProgressIndicator(
                   color: AppColor.secondColor,
                 ),

@@ -55,7 +55,7 @@ class Custom_ButtonAuth extends StatelessWidget {
               child: Text(
                 text,
                 style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
             )
           ],
