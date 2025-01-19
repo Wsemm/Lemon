@@ -20,16 +20,21 @@ class physicalInfo extends StatelessWidget {
               // info
               title: const Text("Your Info")),
           body: ChatBotUi(
-              scrollController: controller.scrollController,
-              currentQuestionIndex: controller.currentQuestionIndex,
-              loading: controller.loading,
-              questions: controller.emptyQuestions,
-              answers: controller.answers,
-              secondIndex: controller.index,
-              textController: controller.textController,
-              submitAnswer: () {
-                controller.submitAnswer();
-              })
+            scrollController: controller.scrollController,
+            currentQuestionIndex: controller.currentQuestionIndex,
+            loading: controller.loading,
+            questions: controller.emptyQuestions,
+            answers: controller.answers,
+            secondIndex: controller.index,
+            textController: controller.textController,
+            submitAnswer: () {
+              controller.submitAnswer();
+            },
+            questionsList: controller.questions,
+            secondList: controller.emptyQuestions,
+            questionIndex: controller.questionIndex,
+            
+          )
 
           //  Column(
 

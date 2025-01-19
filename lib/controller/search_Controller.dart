@@ -10,7 +10,7 @@ import '../core/api/api/end_points.dart';
 import '../core/api/errors/exspitions.dart';
 import '../core/class/statusRequest.dart';
 
-class SearchController extends GetxController {
+class SearchController2 extends GetxController {
   int currentPage = 0;
   int page = 1;
   int limt = 5;
@@ -61,7 +61,7 @@ class SearchController extends GetxController {
 
           final response = await api.get(EndPoint.getProducts,
               queryParameters: {
-                "search": "${searchTextController.text}",
+                "search": searchTextController.text,
                 "page": 1,
                 "limit": 5
               });
@@ -80,7 +80,7 @@ class SearchController extends GetxController {
           searchHistoryStores = 1;
 
           final response = await api.get(EndPoint.getStores, queryParameters: {
-            "search": "${searchTextController.text}",
+            "search": searchTextController.text,
             "page": 1,
             "limit": 5
           });
@@ -88,7 +88,7 @@ class SearchController extends GetxController {
           // print("========${response}");
           searchStoreData = response["data"];
           repository.saveData(bool, searchStoreData);
-          print("aaaaaa${searchStoreData}");
+          print("aaaaaa$searchStoreData");
           if (searchStoreData.isEmpty) {
             isStoreEmpty = 1;
             update();
@@ -120,7 +120,7 @@ class SearchController extends GetxController {
 
   next(index) {
     pageController!.animateToPage(index,
-        duration: Duration(milliseconds: 250), curve: Curves.linear);
+        duration: const Duration(milliseconds: 250), curve: Curves.linear);
   }
 
   search() async {
@@ -131,7 +131,7 @@ class SearchController extends GetxController {
         case 0:
           final response = await api.get(EndPoint.getProducts,
               queryParameters: {
-                "search": "${searchTextController.text}",
+                "search": searchTextController.text,
                 "page": 1,
                 "limit": 5
               });

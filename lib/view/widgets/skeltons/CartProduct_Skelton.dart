@@ -55,7 +55,7 @@ class CartProductSkelton extends StatelessWidget {
                 ),
               )),
           Expanded(
-              flex: 4,
+              flex: 5,
               child: Container(
                 // margin: EdgeInsets.only(left: Get.width * 0.020),
                 child: Row(

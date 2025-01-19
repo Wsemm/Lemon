@@ -66,68 +66,76 @@ class CustomProductDetails extends StatelessWidget {
             )
           ],
         ),
-        Container(
-          // margin: EdgeInsets.only(
-          //     top: Get.height * 0.020, right: Get.width / 2.8),
-          child: Text(
-            // "${controller.repository.productsModel.name}",
-            "${data[index]["name"]}",
-
-            style: const TextStyle(
-                color: AppColor.primaryColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 22),
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(
-            vertical: Get.height * 0.020,
-            horizontal: Get.width * 0.040,
-          ),
-          child: Text(
-            "${data[index]["description"]}",
-            style: TextStyle(
-                color: Colors.grey[500],
-                fontWeight: FontWeight.bold,
-                fontSize: 22),
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: Get.width * 0.040),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        SizedBox(
+          height: Get.height / 2.2,
+          child: ListView(
+            shrinkWrap: true,
             children: [
-              const Text(
-                "Colors",
-                style: TextStyle(fontSize: 20),
+              Container(
+                // margin: EdgeInsets.only(
+                //     top: Get.height * 0.020, right: Get.width / 2.8),
+                child: Text(
+                  // "${controller.repository.productsModel.name}",
+                  "${data[index]["name"]}",
+
+                  style: const TextStyle(
+                      color: AppColor.primaryColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22),
+                ),
               ),
-              Text(
-                // "${controller.repository.productsModel.price} \$",
-                "${data[index]["price"]}",
+              Container(
+                margin: EdgeInsets.symmetric(
+                  vertical: Get.height * 0.020,
+                  horizontal: Get.width * 0.040,
+                ),
+                child: Text(
+                  "${data[index]["description"]}",
+                  style: TextStyle(
+                      color: Colors.grey[500],
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: Get.width * 0.040),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Colors",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    Text(
+                      // "${controller.repository.productsModel.price} \$",
+                      "${data[index]["price"]}",
 
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22,
-                    color: AppColor.primaryColor),
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22,
+                          color: AppColor.primaryColor),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: Get.height * 0.030),
+                child: Row(
+                  children: [
+                    ...List.generate(
+                        5,
+                        (index) => Container(
+                              margin: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                              ),
+                              child: CircleAvatar(
+                                maxRadius: 20,
+                                backgroundColor: color[index],
+                              ),
+                            ))
+                  ],
+                ),
               )
-            ],
-          ),
-        ),
-        Container(
-          margin: EdgeInsets.only(top: Get.height * 0.030),
-          child: Row(
-            children: [
-              ...List.generate(
-                  5,
-                  (index) => Container(
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                        ),
-                        child: CircleAvatar(
-                          maxRadius: 20,
-                          backgroundColor: color[index],
-                        ),
-                      ))
             ],
           ),
         )

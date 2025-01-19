@@ -12,12 +12,15 @@ class HomeScreenController extends GetxController {
   OrdersController ordersController = Get.put(OrdersController());
 
   int currentPage = 0;
-  SearchController searchController = Get.find();
+  SearchController2 searchController = Get.find();
   List bottomappBar = [
     {"title": "home", "icon": Icons.home},
     {"title": "search", "icon": Icons.search},
     {"title": "orders", "icon": Icons.inventory_outlined},
-    {"title": "settings", "icon": Icons.settings}
+    {
+      "title": "settings",
+      "icon": Icons.settings,
+    }
   ];
 
   List<Widget> listPage = [

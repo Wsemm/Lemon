@@ -8,7 +8,7 @@ class ChatBotController extends GetxController {
   final ScrollController scrollController = ScrollController();
   BuildContext? context;
   int currentQuestionIndex = 0;
-  int index = 0;
+  int index = 0,index2=0;
 
   // List<String> questions = [
   //   "Enter your name",
@@ -65,7 +65,7 @@ class ChatBotController extends GetxController {
   _startTyping() {
     Future.delayed(const Duration(seconds: 1), () {
       int index = 0;
-
+      index2=index;
       _timer = Timer.periodic(const Duration(milliseconds: 75), (timer) {
         if (questionIndex <= 12) {
           if (index < questions[questionIndex].length) {

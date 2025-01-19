@@ -22,45 +22,48 @@ class Settings extends StatelessWidget {
       backgroundColor: Colors.grey[300],
       body: Column(
         children: [
-          Stack(
-            children: [
-              Container(
-                width: Get.width,
-                height: Get.height / 6,
-                color: AppColor.primaryColor,
-              ),
-              GetBuilder<HomePageController>(
-                builder: (controller) => Container(
-                  margin: EdgeInsets.only(top: Get.height / 11),
-                  child: Center(
-                    child: CacheHelper().getData(key: "step") != "4"
-                        ? repository.profileModel.avatarUrl == null
-                            ? const Hero(
-                                tag: "profilePic",
-                                child: CircleAvatar(
-                                  maxRadius: 55,
-                                  backgroundImage: AssetImage(AppImage.user),
-                                ),
-                              )
-                            : Hero(
-                                tag: "profilePic",
-                                child: CircleAvatar(
-                                  maxRadius: 55,
-                                  backgroundImage: NetworkImage(
-                                      repository.profileModel.avatarUrl!),
-                                ),
-                              )
-                        : const Hero(
-                            tag: "profilePic",
-                            child: CircleAvatar(
-                              maxRadius: 55,
-                              backgroundImage: AssetImage(AppImage.user),
-                            ),
-                          ),
-                  ),
+          SizedBox(
+            height: Get.height / 4,
+            child: Stack(
+              children: [
+                Container(
+                  width: Get.width,
+                  height: Get.height / 6,
+                  color: AppColor.primaryColor,
                 ),
-              )
-            ],
+                GetBuilder<HomePageController>(
+                  builder: (controller) => Container(
+                    margin: EdgeInsets.only(top: Get.height / 14),
+                    child: Center(
+                      child: CacheHelper().getData(key: "step") != "4"
+                          ? repository.profileModel.avatarUrl == null
+                              ? const Hero(
+                                  tag: "profilePic",
+                                  child: CircleAvatar(
+                                    maxRadius: 65,
+                                    backgroundImage: AssetImage(AppImage.user),
+                                  ),
+                                )
+                              : Hero(
+                                  tag: "profilePic",
+                                  child: CircleAvatar(
+                                    maxRadius: 65,
+                                    backgroundImage: NetworkImage(
+                                        repository.profileModel.avatarUrl!),
+                                  ),
+                                )
+                          : const Hero(
+                              tag: "profilePic",
+                              child: CircleAvatar(
+                                maxRadius: 55,
+                                backgroundImage: AssetImage(AppImage.user),
+                              ),
+                            ),
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),

@@ -11,6 +11,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
     Get.put(HomeScreenController());
     return GetBuilder<HomeScreenController>(
       builder: (controller) => Container(
+        height: Get.height * 0.07,
         decoration: const BoxDecoration(
             color: AppColor.secondColor,
             border: Border(
@@ -20,24 +21,34 @@ class CustomBottomAppBarHome extends StatelessWidget {
           // color: AppColor.primaryColor,
           shape: const CircularNotchedRectangle(),
           notchMargin: 10,
-          child: Row(
-            children: [
-              ...List.generate(controller.listPage.length + 1, (index) {
-                int i =
-                    index > controller.listPage.length - 2 ? index - 1 : index;
+          child: Container(
+            // margin: EdgeInsets.symmetric(
+            //   horizontal: Get.width * 0.005,
+            // ),
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ...List.generate(controller.listPage.length + 1, (index) {
+                  int i = index > controller.listPage.length - 2
+                      ? index - 1
+                      : index;
 
-                return index == 2
-                    ? const Spacer()
-                    : CustomButtonAppBar(
-                        onPressed: () {
-                          controller.changePage(i);
-                        },
-                        // TextButton: controller.bottomappBar[i]['title'],
-                        iconData: controller.bottomappBar[i]['icon'],
-                        active: controller.currentPage == i ? true : false,
-                      );
-              })
-            ],
+                  return index == 2
+                      ? const Spacer()
+                      : SizedBox(
+                          width: Get.width*0.19,
+                          child: CustomButtonAppBar(
+                            onPressed: () {
+                              controller.changePage(i);
+                            },
+                            // TextButton: controller.bottomappBar[i]['title'],
+                            iconData: controller.bottomappBar[i]['icon'],
+                            active: controller.currentPage == i ? true : false,
+                          ),
+                        );
+                })
+              ],
+            ),
           ),
         ),
       ),
@@ -62,20 +73,9 @@ class CustomButtonAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onPressed,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            iconData,
-            color: active == true ? AppColor.primaryColor : Colors.grey[600],
-          ),
-          // Text(
-          //   TextButton,
-          //   style: TextStyle(
-          //       color:
-          //           active == true ? AppColor.primaryColor : AppColor.Deepgrey),
-          // )
-        ],
+      child: Icon(
+        iconData,
+        color: active == true ? AppColor.primaryColor : Colors.grey[600],
       ),
     );
   }

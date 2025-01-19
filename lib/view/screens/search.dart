@@ -12,9 +12,9 @@ class Search extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SearchController controller = Get.put(SearchController());
+    SearchController2 controller = Get.put(SearchController2());
     return SafeArea(
-      child: GetBuilder<SearchController>(
+      child: GetBuilder<SearchController2>(
         builder: (controller) => Scaffold(
           backgroundColor: Colors.grey[200],
           body: Column(
@@ -300,7 +300,7 @@ class Search extends StatelessWidget {
                                     ),
                                   ),
 
-                        // thiers page
+                        // theried page
                         controller.statusRequest == StatusRequest.loading
                             ? Column(
                                 children: [

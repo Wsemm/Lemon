@@ -16,13 +16,9 @@ class CustomListStores extends StatelessWidget {
         horizontal: 5,
       ),
       child: Card(
-        child: Container(
-          margin: EdgeInsets.symmetric(
-            vertical: Get.height * 0.010,
-            horizontal: Get.width * 0.020,
-          ),
+        child: SizedBox(
           width: Get.width,
-          height: Get.height / 5,
+          height: Get.height / 4.5,
           child: Column(
             children: [
               Hero(
@@ -33,19 +29,21 @@ class CustomListStores extends StatelessWidget {
                       ? "${data[index]["coverPath"]}"
                       : "${data[index]["coverURL"]}",
                   fit: BoxFit.fill,
-                  height: Get.height * 0.11,
+                  height: Get.height * 0.10,
                   width: Get.width - Get.width * 0.090,
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: Get.height * 0.010),
+                margin: EdgeInsets.only(
+                    top: Get.height * 0.010,
+                    right: Get.width * 0.020,
+                    left: Get.width * 0.020),
                 child: Row(
                   children: [Text("${data[index]["brand"]}")],
                 ),
               ),
               Container(
-                // margin:
-                // EdgeInsets.only(top: Get.height * 0.010),
+                margin: EdgeInsets.symmetric(horizontal: Get.width * 0.020),
                 child: const Row(
                   children: [
                     Text(
@@ -56,7 +54,10 @@ class CustomListStores extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: Get.height * 0.010),
+                margin: EdgeInsets.only(
+                    top: Get.height * 0.010,
+                    right: Get.width * 0.020,
+                    left: Get.width * 0.020),
                 child: Row(
                   children: [
                     Text(

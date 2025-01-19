@@ -30,7 +30,7 @@ class CustomCartProductds extends StatelessWidget {
         horizontal: Get.width * 0.014,
       ),
       width: Get.width,
-      height: Get.height / 8,
+      height: Get.height / 7,
       child: Row(
         children: [
           Expanded(

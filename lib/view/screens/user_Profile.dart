@@ -29,131 +29,136 @@ class UserProfile extends StatelessWidget {
             child: ListView(
               shrinkWrap: true,
               children: [
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        Stack(
-                          children: [
-                            Container(
-                              width: Get.width,
-                              height: Get.height / 8,
-                              color: Colors.grey[350],
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                controller.pickImage();
-                              },
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                    top: Get.height * 0.030,
-                                    left: Get.width * 0.040),
-                                child: repository.profileModel.avatarUrl == null
-                                    ? controller.image == null
-                                        ? const Hero(
-                                            tag: "profilePic",
-                                            child: CircleAvatar(
-                                              maxRadius: 55,
-                                              backgroundImage:
-                                                  AssetImage(AppImage.user),
-                                            ),
-                                          )
-                                        : Hero(
-                                            tag: "profilePic",
-                                            child: CircleAvatar(
-                                              maxRadius: 55,
-                                              backgroundImage: FileImage(
-                                                  File(controller.image!.path)),
-                                            ),
-                                          )
-                                    : Hero(
-                                        tag: "profilePic",
-                                        child: CircleAvatar(
-                                          maxRadius: 55,
-                                          backgroundImage: NetworkImage(
-                                              repository
-                                                  .profileModel.avatarUrl!),
-                                        ),
-                                      ),
+                SizedBox(
+                  height: Get.height * 0.95,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Stack(
+                            children: [
+                              Container(
+                                width: Get.width,
+                                height: Get.height / 8,
+                                color: Colors.grey[350],
                               ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                    CustomTextFormField(
-                        validator: (val) {
-                          return validatorEmptyAllow(val!, 0, 15, "name", "");
-                        },
-                        controller: controller.name,
-                        prefix: Icons.person,
-                        text: repository.profileModel.name != null
-                            ? "${repository.profileModel.name}"
-                            : "Enter your Name"),
-                    CustomTextFormField(
-                        keyboardType: TextInputType.phone,
-                        validator: (val) {
-                          return validatorEmptyAllow(val!, 0, 10, "phone", "");
-                        },
-                        controller: controller.phoneNumber,
-                        prefix: Icons.phone,
-                        text: repository.profileModel.phoneNumber != null
-                            ? "${repository.profileModel.phoneNumber}"
-                            : "Enter your phone Number"),
-                    CustomTextFormField(
-                        validator: (val) {
-                          return validatorEmptyAllow(val!, 0, 15, "city", "");
-                        },
-                        controller: controller.city,
-                        prefix: Icons.location_city,
-                        text: repository.profileModel.city != null
-                            ? "${repository.profileModel.city}"
-                            : "Enter your City"),
-                    CustomTextFormField(
-                        // validator: (val) {
-                        //   return validatorEmptyAllow(val!, 2, 30, "date", "");
-                        // },
-                        readOnly: true,
-                        onTap: () {
-                          controller.selectDate(context);
-                        },
-                        controller: controller.date,
-                        prefix: Icons.calendar_month,
-                        text: repository.profileModel.dob != null
-                            ? "${repository.profileModel.dob}"
-                            : "Enter your Date of birth"),
-                    controller.statusRequest == StatusRequest.loading
-                        ? Container(
-                            margin: EdgeInsets.only(
-                                top: Get.height * 0.18,
-                                left: Get.width * 0.020,
-                                right: Get.width * 0.020),
-                            child: const CircularProgressIndicator())
-                        : Container(
-                            width: double.infinity,
-                            margin: EdgeInsets.only(
-                                top: Get.height * 0.30,
-                                left: Get.width * 0.020,
-                                right: Get.width * 0.020),
-                            decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                  colors: [
-                                    AppColor.secondColor,
-                                    AppColor.primaryColor,
-                                    Colors.blueGrey
-                                  ],
-                                ),
-                                borderRadius: BorderRadius.circular(20)),
-                            child: MaterialButton(
-                                onPressed: () {
-                                  controller.PatchPersonalInfo();
+                              GestureDetector(
+                                onTap: () {
+                                  controller.pickImage();
                                 },
-                                child: const Text(
-                                  "Save",
-                                  style: TextStyle(color: Colors.white),
-                                )),
-                          ),
-                  ],
+                                child: Container(
+                                  margin: EdgeInsets.only(
+                                      top: Get.height * 0.030,
+                                      left: Get.width * 0.040),
+                                  child: repository.profileModel.avatarUrl ==
+                                          null
+                                      ? controller.image == null
+                                          ? const Hero(
+                                              tag: "profilePic",
+                                              child: CircleAvatar(
+                                                maxRadius: 55,
+                                                backgroundImage:
+                                                    AssetImage(AppImage.user),
+                                              ),
+                                            )
+                                          : Hero(
+                                              tag: "profilePic",
+                                              child: CircleAvatar(
+                                                maxRadius: 55,
+                                                backgroundImage: FileImage(File(
+                                                    controller.image!.path)),
+                                              ),
+                                            )
+                                      : Hero(
+                                          tag: "profilePic",
+                                          child: CircleAvatar(
+                                            maxRadius: 55,
+                                            backgroundImage: NetworkImage(
+                                                repository
+                                                    .profileModel.avatarUrl!),
+                                          ),
+                                        ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                      CustomTextFormField(
+                          validator: (val) {
+                            return validatorEmptyAllow(val!, 0, 15, "name", "");
+                          },
+                          controller: controller.name,
+                          prefix: Icons.person,
+                          text: repository.profileModel.name != null
+                              ? "${repository.profileModel.name}"
+                              : "Enter your Name"),
+                      CustomTextFormField(
+                          keyboardType: TextInputType.phone,
+                          validator: (val) {
+                            return validatorEmptyAllow(
+                                val!, 0, 10, "phone", "");
+                          },
+                          controller: controller.phoneNumber,
+                          prefix: Icons.phone,
+                          text: repository.profileModel.phoneNumber != null
+                              ? "${repository.profileModel.phoneNumber}"
+                              : "Enter your phone Number"),
+                      CustomTextFormField(
+                          validator: (val) {
+                            return validatorEmptyAllow(val!, 0, 15, "city", "");
+                          },
+                          controller: controller.city,
+                          prefix: Icons.location_city,
+                          text: repository.profileModel.city != null
+                              ? "${repository.profileModel.city}"
+                              : "Enter your City"),
+                      CustomTextFormField(
+                          // validator: (val) {
+                          //   return validatorEmptyAllow(val!, 2, 30, "date", "");
+                          // },
+                          readOnly: true,
+                          onTap: () {
+                            controller.selectDate(context);
+                          },
+                          controller: controller.date,
+                          prefix: Icons.calendar_month,
+                          text: repository.profileModel.dob != null
+                              ? "${repository.profileModel.dob}"
+                              : "Enter your Date of birth"),
+                      controller.statusRequest == StatusRequest.loading
+                          ? Container(
+                              margin: EdgeInsets.only(
+                                  top: Get.height * 0.18,
+                                  left: Get.width * 0.020,
+                                  right: Get.width * 0.020),
+                              child: const CircularProgressIndicator())
+                          : Container(
+                              width: double.infinity,
+                              margin: EdgeInsets.only(
+                                  top: Get.height * 0.17,
+                                  left: Get.width * 0.020,
+                                  right: Get.width * 0.020),
+                              decoration: BoxDecoration(
+                                  gradient: const LinearGradient(
+                                    colors: [
+                                      AppColor.secondColor,
+                                      AppColor.primaryColor,
+                                      Colors.blueGrey
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: MaterialButton(
+                                  onPressed: () {
+                                    controller.PatchPersonalInfo();
+                                  },
+                                  child: const Text(
+                                    "Save",
+                                    style: TextStyle(color: Colors.white),
+                                  )),
+                            ),
+                    ],
+                  ),
                 )
               ],
             ),

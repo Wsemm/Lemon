@@ -24,7 +24,10 @@ class ChatBotUi extends StatelessWidget {
       required this.secondIndex,
       required this.textController,
       required this.submitAnswer,
-      this.widget});
+      this.widget,
+      required this.questionsList,
+      required this.questionIndex,
+      required this.secondList});
   final ScrollController scrollController;
   final int currentQuestionIndex;
   final bool loading;
@@ -33,6 +36,8 @@ class ChatBotUi extends StatelessWidget {
   final TextEditingController textController;
   final Function submitAnswer;
   final Widget? widget;
+  final List questionsList, secondList;
+  final int questionIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +84,6 @@ class ChatBotUi extends StatelessWidget {
 
                                     : ChatBubble(
                                         chat: true, text: questions[index])
-                                  
                                 : ChatBubble(
                                     chat: true, text: questions[index]),
                       ),
@@ -93,11 +97,13 @@ class ChatBotUi extends StatelessWidget {
                   if (index > 6)
                     if (index == currentQuestionIndex)
                       if (loading == false)
-                        Container(
-                            padding:
-                                EdgeInsets.only(bottom: Get.height * 0.020),
-                            // style for select awnsers mode
-                            child: Chose(index: secondIndex)),
+                        // if (questionsList[questionIndex].length ==
+                            // secondList[questionIndex].length)
+                          Container(
+                              padding:
+                                  EdgeInsets.only(bottom: Get.height * 0.020),
+                              // style for select awnsers mode
+                              child: Chose(index: secondIndex)),
                   // START awnsers textField part
                   //contditon to start awnsers after questions and to loop until final question
                   if (index < answers.length)

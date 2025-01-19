@@ -20,7 +20,7 @@ class StoreSkelton extends StatelessWidget {
             Container(
               margin: EdgeInsets.symmetric(
                   horizontal: Get.width * 0.010, vertical: Get.height * 0.010),
-              height: Get.height * 0.1,
+              height: Get.height * 0.13,
               child: ListView(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,

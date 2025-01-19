@@ -21,7 +21,7 @@ class CustomListStoresSkelton extends StatelessWidget {
             horizontal: Get.width * 0.020,
           ),
           width: Get.width,
-          height: Get.height / 5,
+          height: Get.height / 4.3,
           child: Column(
             children: [
               Container(

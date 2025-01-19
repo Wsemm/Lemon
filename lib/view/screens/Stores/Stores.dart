@@ -38,58 +38,70 @@ class Stores extends StatelessWidget {
                               left: Get.width * 0.010,
                               // bottom: Get.height * 0.010
                             ),
-                            height: Get.height * 0.10,
+                            height: Get.height * 0.11,
                             child: ListView(
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
                               children: [
                                 ...List.generate(
                                     repository.storeCategories.data!.length,
-                                    (index) => InkWell(
-                                        onTap: () {
-                                          controller.selectedCat2 = index;
-                                          controller.selectedCat = index;
-                                          // controller.selectedCat = repository
-                                          //     .storeCategories.data![index].id!;
+                                    (index) => Container(
+                                          child: InkWell(
+                                              onTap: () {
+                                                controller.selectedCat2 = index;
+                                                controller.selectedCat = index;
+                                                // controller.selectedCat = repository
+                                                //     .storeCategories.data![index].id!;
 
-                                          if (controller.selectedCats.contains(
-                                              repository.storeCategories
-                                                  .data![index].id)) {
-                                            controller.selectedCats.remove(
-                                                repository.storeCategories
-                                                    .data![index].id);
-                                          } else {
-                                            controller.selectedCats.add(
-                                                repository.storeCategories
-                                                    .data![index].id);
-                                          }
-                                          // controller.getStoresTag();
+                                                if (controller.selectedCats
+                                                    .contains(repository
+                                                        .storeCategories
+                                                        .data![index]
+                                                        .id)) {
+                                                  controller.selectedCats
+                                                      .remove(repository
+                                                          .storeCategories
+                                                          .data![index]
+                                                          .id);
+                                                } else {
+                                                  controller.selectedCats.add(
+                                                      repository.storeCategories
+                                                          .data![index].id);
+                                                }
+                                                // controller.getStoresTag();
 
-                                          if (controller.indexList
-                                              .contains(index)) {
-                                            controller.indexList.remove(index);
-                                          } else {
-                                            controller.indexList.add(index);
-                                          }
-                                          controller.getStoresById();
+                                                if (controller.indexList
+                                                    .contains(index)) {
+                                                  controller.indexList
+                                                      .remove(index);
+                                                } else {
+                                                  controller.indexList
+                                                      .add(index);
+                                                }
+                                                controller.getStoresById();
 
-                                          print(controller.indexList);
-                                          print(controller.selectedCats);
-                                          controller.update();
+                                                print(controller.indexList);
+                                                print(controller.selectedCats);
+                                                controller.update();
 
-                                          // controller.getStoresById(
-                                          //     "${repository.storeCategories.data![index].id}");
-                                          // controller.getStoresById(
-                                          //     "${repository.storeCategories.data![index].id}");
-                                          // print(repository
-                                          //     .storeCategories.data![index].id);
-                                        },
-                                        child: CustomListStoresCategories(
-                                          selectedCat: controller.indexList,
-                                          index: index,
-                                          // selectedCat:
-                                          //     controller.selectedCat
-                                        )))
+                                                // controller.getStoresById(
+                                                //     "${repository.storeCategories.data![index].id}");
+                                                // controller.getStoresById(
+                                                //     "${repository.storeCategories.data![index].id}");
+                                                // print(repository
+                                                //     .storeCategories.data![index].id);
+                                              },
+                                              child: Container(
+                                                child:
+                                                    CustomListStoresCategories(
+                                                  selectedCat:
+                                                      controller.indexList,
+                                                  index: index,
+                                                  // selectedCat:
+                                                  //     controller.selectedCat
+                                                ),
+                                              )),
+                                        ))
                               ],
                             ),
                           ),
@@ -135,12 +147,16 @@ class Stores extends StatelessWidget {
                                       secondWidget:
                                           const CustomListStoresSkelton(),
                                       statusRequest: controller.statusRequest2,
-                                      widget: CustomListStores(
-                                          home: 1,
-                                          index: index,
-                                          data: controller.filter == 0
-                                              ? repository.storesModel
-                                              : repository.test2))
+                                      widget: Container(
+                                        margin: EdgeInsets.only(
+                                            top: Get.height * 0.010),
+                                        child: CustomListStores(
+                                            home: 1,
+                                            index: index,
+                                            data: controller.filter == 0
+                                                ? repository.storesModel
+                                                : repository.test2),
+                                      ))
                                   // : repository.storesModelById[
                                   //     "${repository.storeCategories.data![controller.selectedCat].id}"])),
                                   )),

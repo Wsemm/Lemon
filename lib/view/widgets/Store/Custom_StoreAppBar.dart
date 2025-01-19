@@ -9,7 +9,7 @@ class CustomStoreAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SearchController searchController = Get.find();
+    SearchController2 searchController = Get.find();
     return Container(
       color: const Color.fromRGBO(19, 123, 114, 0.8),
       child: Container(
