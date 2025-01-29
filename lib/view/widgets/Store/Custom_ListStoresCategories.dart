@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
+import '../../../Repositories/ApiDataRepository.dart';
 
 import '../../../core/constant/AppColor.dart';
 
@@ -33,13 +33,13 @@ class CustomListStoresCategories extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
+              SizedBox(
                 // color: Colors.red,
                 width: Get.width / 5.5,
 
                 // height: 50,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10)),
                   child: CachedNetworkImage(
@@ -83,7 +83,7 @@ class CustomListStoresCategories extends StatelessWidget {
 }
 
 class CustomListStoresCategoriesSkelton extends StatelessWidget {
-  const CustomListStoresCategoriesSkelton();
+  const CustomListStoresCategoriesSkelton({super.key});
   @override
   Widget build(BuildContext context) {
     ApiDataRepository repository = Get.find();
@@ -105,13 +105,13 @@ class CustomListStoresCategoriesSkelton extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
+              SizedBox(
                 // color: Colors.red,
                 width: Get.width / 5.5,
 
                 // height: 50,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(100)),
+                  borderRadius: const BorderRadius.all(Radius.circular(100)),
                   child: Container(
                     height: 50,
                     color: Colors.grey,
@@ -136,7 +136,7 @@ class CustomListStoresCategoriesSkelton extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                child: Text(
+                child: const Text(
                   "name", style: TextStyle(color: Colors.grey),
                   // "${controller.storeCategories[index]["name"]}"
                 ),

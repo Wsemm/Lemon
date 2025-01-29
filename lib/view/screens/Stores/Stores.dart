@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/controller/Store_Controller.dart';
-import 'package:lemon/core/constant/AppColor.dart';
-import 'package:lemon/core/functions/requestStatusControl.dart';
-import 'package:lemon/routs.dart';
-import 'package:lemon/view/screens/test.dart';
-import 'package:lemon/view/widgets/Store/StoreSkelton.dart';
+import '../../../Repositories/ApiDataRepository.dart';
+import '../../../controller/Store_Controller.dart';
+import '../../../core/functions/requestStatusControl.dart';
+import '../../../routs.dart';
+import '../../widgets/Store/StoreSkelton.dart';
 import '../../widgets/Store/Custom_ListStoresSkelton.dart';
 import '../../widgets/Store/Custom_ListStores.dart';
 import '../../widgets/Store/Custom_ListStoresCategories.dart';
@@ -53,20 +51,22 @@ class Stores extends StatelessWidget {
                                                 // controller.selectedCat = repository
                                                 //     .storeCategories.data![index].id!;
 
-                                                if (controller.selectedCats
+                                                if (controller.selectedCatsList
                                                     .contains(repository
                                                         .storeCategories
                                                         .data![index]
                                                         .id)) {
-                                                  controller.selectedCats
+                                                  controller.selectedCatsList
                                                       .remove(repository
                                                           .storeCategories
                                                           .data![index]
                                                           .id);
                                                 } else {
-                                                  controller.selectedCats.add(
-                                                      repository.storeCategories
-                                                          .data![index].id);
+                                                  controller.selectedCatsList
+                                                      .add(repository
+                                                          .storeCategories
+                                                          .data![index]
+                                                          .id);
                                                 }
                                                 // controller.getStoresTag();
 
@@ -81,7 +81,8 @@ class Stores extends StatelessWidget {
                                                 controller.getStoresById();
 
                                                 print(controller.indexList);
-                                                print(controller.selectedCats);
+                                                print(controller
+                                                    .selectedCatsList);
                                                 controller.update();
 
                                                 // controller.getStoresById(

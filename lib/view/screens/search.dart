@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/controller/search_Controller.dart';
-import 'package:lemon/core/class/statusRequest.dart';
-import 'package:lemon/view/widgets/Custom_ListProducts.dart';
+import '../../controller/search_Controller.dart';
+import '../../core/class/statusRequest.dart';
+import '../widgets/Custom_ListProducts.dart';
 import '../../core/constant/AppColor.dart';
 import '../../routs.dart';
 

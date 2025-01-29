@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/model/stores_model.dart';
+import '../../../Repositories/ApiDataRepository.dart';
+import '../../../model/stores_model.dart';
 import '../../../controller/Stores/storeProfile_Controller.dart';
 import '../../widgets/Store/StoreProfile.dart';
 

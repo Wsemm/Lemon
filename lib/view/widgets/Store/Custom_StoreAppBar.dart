@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/controller/search_Controller.dart';
+import '../../../controller/search_Controller.dart';
 
 import '../../../routs.dart';
 

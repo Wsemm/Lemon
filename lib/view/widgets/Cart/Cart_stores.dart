@@ -1,9 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/Cart_Controller.dart';
-import '../../../core/constant/AppColor.dart';
 
 class CartStores extends StatelessWidget {
   const CartStores({super.key, this.index, this.data, this.home});

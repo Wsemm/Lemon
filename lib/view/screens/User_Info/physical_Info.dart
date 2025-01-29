@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/controller/Auth/auth_Controller.dart';
-import 'package:lemon/controller/ChatBot/chatBot_Controller.dart';
-import 'package:lemon/core/constant/AppColor.dart';
+import '../../../controller/Auth/auth_Controller.dart';
+import '../../../controller/ChatBot/chatBot_Controller.dart';
+import '../../../core/constant/AppColor.dart';
 import '../../widgets/chat_Bot/ChatBot_Ui.dart';
 
 class physicalInfo extends StatelessWidget {
@@ -10,7 +10,7 @@ class physicalInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(Auth_Controller());
+    Get.put(AuthController());
     Get.put(ChatBotController());
     return GetBuilder<ChatBotController>(
       builder: (controller) => Scaffold(
@@ -33,7 +33,6 @@ class physicalInfo extends StatelessWidget {
             questionsList: controller.questions,
             secondList: controller.emptyQuestions,
             questionIndex: controller.questionIndex,
-            
           )
 
           //  Column(

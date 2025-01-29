@@ -1,14 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/controller/Cart_Controller.dart';
 import 'package:lemon/routs.dart';
 import 'package:lemon/view/widgets/Cart/Cart_product.dart';
-
+import '../../../Repositories/ApiDataRepository.dart';
+import '../../../controller/Cart_Controller.dart';
 import '../../../core/constant/AppColor.dart';
-import '../../widgets/Cart/Cart_stores.dart';
-import '../../widgets/Store/Custom_ListStores.dart';
 import '../../widgets/skeltons/CartProduct_Skelton.dart';
 
 class Cart extends StatelessWidget {
@@ -37,7 +33,30 @@ class Cart extends StatelessWidget {
         ),
         child: Center(
             child: MaterialButton(
-          onPressed: () {},
+          onPressed: () {
+            Map Mymap = {};
+            List myList = [];
+            for (int i = 0;
+                i <= repository.myCart.data!.cartItems!.length - 1;
+                i++) {
+              Mymap.addAll(
+                {
+                  "StoreId":
+                      repository.myCart.data!.cartItems![i].product!.storeId!,
+                  "delivery": {}
+                },
+              );
+
+              myList.add({
+                "productId": repository.myCart.data!.cartItems![i].product!.id,
+                "productName":
+                    "${repository.myCart.data!.cartItems![i].product!.name}",
+                "price": repository.myCart.data!.cartItems![i].product!.price,
+                "quantity": repository.myCart.data!.cartItems![i].quantity
+              });
+            }
+            print(myList);
+          },
           child: const Text(
             "subimt order",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -46,72 +65,77 @@ class Cart extends StatelessWidget {
       ),
       appBar: AppBar(title: const Text("My Cart")),
       body: GetBuilder<CartController>(
-        builder: (controller) => SizedBox(
-          height: Get.height - Get.height * 0.18,
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: repository.myCart.data != null
-                ? 1 //repository.myCart.data!.length
-                : 6,
-            itemBuilder: (context, index) => repository.myCart.data == null
-                ? const CartProductSkelton()
-                : Dismissible(
-                    background: Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: Get.height * 0.010,
-                        horizontal: Get.width * 0.014,
-                      ),
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: const Icon(
-                        Icons.delete_outline_outlined,
-                        size: 30,
+        builder: (controller) => Scaffold(
+          body: SizedBox(
+            height: Get.height - Get.height * 0.18,
+            child: repository.myCart.data!.cartItems!.isEmpty
+                ? Center(
+                    child: Container(
+                      child: const Text(
+                        "You dont have any products in your cart",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    key: ValueKey<String>(
-                        "${repository.myCart.data![index].cartItems![0].id}"),
-                    onDismissed: (direction) {
-                      repository.myCart.data!.removeAt(index);
-                      controller.productsQuantity.removeAt(index);
-                      print("==== ${repository.myCart.data!.length}");
-                      controller.update();
-
-                      // print(
-                      //     "DELETED DELETED DELETED DELETED   ${repository.myCart.data![index].cartItems![0].id}");
-                    },
-                    child: InkWell(
-                        onTap: () {
-                          print(controller.productsQuantity[index][
-                              "${repository.myCart.data![index].cartItems![0].id}"]);
-                          // controller.getProductDetails(
-                          //     repository.myCart.data![index].cartItems![0].id);
-                          // Get.toNamed(AppRout.productDetails, arguments: {
-                          //   "productId":
-                          //       repository.myCart.data![index].cartItems![0].id,
-                          //   "details": "test"
-                          // });
-                        },
-                        child: controller.productsQuantity.isEmpty
-                            ? const CartProductSkelton()
-                            : InkWell(
-                                onTap: () {
-                                  Get.toNamed(AppRout.cartStoreProducts,
-                                      arguments: {"id": index});
+                  )
+                : ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: repository.myCart.data != null
+                        ? repository.myCart.data!.cartItems!.length
+                        : 6,
+                    itemBuilder: (context, index) => repository.myCart.data ==
+                            null
+                        ? const CartProductSkelton()
+                        : Dismissible(
+                            background: Container(
+                              margin: EdgeInsets.symmetric(
+                                vertical: Get.height * 0.010,
+                                horizontal: Get.width * 0.014,
+                              ),
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(10)),
+                              child: const Icon(
+                                Icons.delete_outline_outlined,
+                                size: 30,
+                              ),
+                            ),
+                            key: ValueKey<String>(
+                                "${repository.myCart.data!.cartItems![index].id}"),
+                            onDismissed: (direction) {
+                              controller.deleteFromCart(repository
+                                  .myCart.data!.cartItems![index].product!.id!);
+                              repository.myCart.data!.cartItems!
+                                  .removeAt(index);
+                              controller.productsQuantity.removeAt(index);
+                              controller.update();
+                            },
+                            child: InkWell(
+                                onTap: () async {
+                                  // print(controller.productsQuantity[index][
+                                  //     "${repository.myCart.data![index].cartItems![0].id}"]);
+                                  await controller.getProductDetails(repository
+                                      .myCart
+                                      .data!
+                                      .cartItems![index]
+                                      .product!
+                                      .id);
+                                  Get.toNamed(AppRout.productDetails,
+                                      arguments: {
+                                        "productId": repository.myCart.data!
+                                            .cartItems![index].product!.id,
+                                        "details": "test"
+                                      });
                                 },
-                                child: CartStores(
-                                  data: repository.myCart.data!,
-                                  index: index,
-                                  home: 1,
-                                ),
-                              )
-
-                        // CustomCartProductds(
-                        //     data: repository.myCart.data!,
-                        //     productsQuantity: controller.productsQuantity,
-                        //     index: index,
-                        //   ),
-                        ),
+                                child: controller.productsQuantity.isEmpty
+                                    ? const CartProductSkelton()
+                                    : CustomCartProductds(
+                                        data: repository.myCart.data!.cartItems,
+                                        productsQuantity:
+                                            controller.productsQuantity,
+                                        index: index,
+                                      )),
+                          ),
                   ),
           ),
         ),

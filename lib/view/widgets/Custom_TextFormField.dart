@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/controller/Auth/auth_Controller.dart';
-import 'package:lemon/core/functions/validator.dart';
+import '../../controller/Auth/auth_Controller.dart';
 
 import '../../core/constant/AppColor.dart';
 
@@ -25,7 +24,7 @@ class Custom_TextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Auth_Controller authController = Get.put(Auth_Controller());
+    AuthController authController = Get.put(AuthController());
     RxBool isFocused = false.obs;
 
     focusNode!.addListener(() {

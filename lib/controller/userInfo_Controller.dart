@@ -2,10 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/core/api/api/api_consumer.dart';
-import 'package:lemon/core/api/api/dio_consumer.dart';
-import 'package:lemon/core/class/statusRequest.dart';
+import '../Repositories/ApiDataRepository.dart';
+import '../core/api/api/api_consumer.dart';
+import '../core/api/api/dio_consumer.dart';
+import '../core/class/statusRequest.dart';
 
 import '../core/api/api/end_points.dart';
 import '../core/api/errors/exspitions.dart';
@@ -22,9 +22,46 @@ class UserInfoController extends GetxController {
   ProfileModel? profileModel;
   XFile? image;
   Map payloadData = {};
-  late TextEditingController name, phoneNumber, city, date;
   late String dob, imageURL;
   GlobalKey<FormState> formState = GlobalKey<FormState>();
+  GlobalKey<FormState> formStateAddress = GlobalKey<FormState>();
+  late TextEditingController name,
+      phoneNumber,
+      city,
+      date,
+      labeTextController,
+      detailsTextController,
+      areaTextController,
+      cityTextController,
+      streetTextController,
+      phoneNumberTextController;
+
+  List addressinfo = [
+    {
+      "title": "Label",
+      "icon": Icons.label_important_rounded,
+    },
+    {
+      "title": "details",
+      "icon": Icons.details_outlined,
+    },
+    {
+      "title": "area",
+      "icon": Icons.area_chart,
+    },
+    {
+      "title": "city",
+      "icon": Icons.store_mall_directory_rounded,
+    },
+    {
+      "title": "street",
+      "street": Icons.streetview,
+    },
+    {
+      "title": "phone Number",
+      "street": Icons.phone,
+    },
+  ];
 
   PatchPersonalInfo() async {
     if (formState.currentState!.validate()) {
@@ -113,8 +150,8 @@ class UserInfoController extends GetxController {
         update();
         final response =
             await api.post(isFromData: true, EndPoint.uploadImage, data: {
-          "folder": "profile2",
-          "name": "test new2",
+          "folderName": "user",
+          "fileName": "test new2",
           "file": await uploadImageToAPI(image!),
         });
         imageURL = response["path"];
@@ -124,8 +161,8 @@ class UserInfoController extends GetxController {
       } on ServerException catch (e) {
         serverFailuer(
             statusRequest = StatusRequest.failuer, e.errModel.message);
-        Get.snackbar("failuer", e.errModel.message);
-        // TODO
+        Get.snackbar("failuer", e.errModel.message[0]);
+        update();
       }
     }
   }
@@ -139,13 +176,47 @@ class UserInfoController extends GetxController {
     update();
   }
 
-  @override
-  void onInit() {
+  initialTextController() {
+    labeTextController = TextEditingController();
+    detailsTextController = TextEditingController();
+    areaTextController = TextEditingController();
+    cityTextController = TextEditingController();
+    streetTextController = TextEditingController();
+    phoneNumberTextController = TextEditingController();
     name = TextEditingController();
     phoneNumber = TextEditingController();
     city = TextEditingController();
     date = TextEditingController();
     dob = "";
+  }
+
+  addAddress() async {
+    statusRequest = StatusRequest.loading;
+    update();
+    try {
+      final response = await api.post(EndPoint.addAddress, data: {
+        "label": labeTextController.text,
+        "details": detailsTextController.text,
+        "area": areaTextController.text,
+        "city": cityTextController.text,
+        "street": streetTextController.text,
+        "phoneNumber": phoneNumberTextController.text
+      });
+
+      statusRequest = StatusRequest.sucess;
+      Get.snackbar("success", "Login success");
+      update();
+    } on ServerException catch (e) {
+      serverFailuer(statusRequest = StatusRequest.failuer, e.errModel.message);
+      Get.snackbar("failuer", "${e.errModel.message}");
+    }
+
+    update();
+  }
+
+  @override
+  void onInit() {
+    initialTextController();
 
     super.onInit();
   }

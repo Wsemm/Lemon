@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
+import '../../../Repositories/ApiDataRepository.dart';
 
 class CustomListStoresSkelton extends StatelessWidget {
   const CustomListStoresSkelton({

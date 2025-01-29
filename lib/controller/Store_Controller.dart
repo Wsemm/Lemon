@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/core/api/api/api_consumer.dart';
-import 'package:lemon/core/api/api/dio_consumer.dart';
-import 'package:lemon/model/stores_model.dart';
+import '../Repositories/ApiDataRepository.dart';
+import '../core/api/api/api_consumer.dart';
+import '../core/api/api/dio_consumer.dart';
+import '../model/stores_model.dart';
 
 import '../core/api/api/end_points.dart';
 import '../core/api/errors/exspitions.dart';
@@ -19,7 +19,7 @@ class StoreController extends GetxController {
   StoreCategories_model storeCategories_model = StoreCategories_model();
   List data = [];
   List storesTags = [];
-  List selectedCats = [], indexList = [];
+  List selectedCatsList = [], indexList = [];
   int page = 1, limt = 10, pageById = 1;
   final ScrollController scrollController = ScrollController();
 
@@ -64,7 +64,7 @@ class StoreController extends GetxController {
       final response = await api.get(EndPoint.getStores, queryParameters: {
         "page": repository.page,
         "limit": 10,
-        "tagIds": selectedCats,
+        "tagIds": selectedCatsList,
       });
       // loginModel = LoginModel.fromJson(response);
       repository.page++;
@@ -94,18 +94,21 @@ class StoreController extends GetxController {
       // if (repository.storesModelById[
       //         "${repository.storeCategories.data![selectedCat2].id}"] ==
       //     null) {
-        final response = await api.get(EndPoint.getStores,
-            queryParameters: {"page": 1, "limit": 10, "tagIds": selectedCats});
-        // loginModel = LoginModel.fromJson(response);
+      final response = await api.get(EndPoint.getStores, queryParameters: {
+        "page": 1,
+        "limit": 10,
+        "tagIds": selectedCatsList
+      });
+      // loginModel = LoginModel.fromJson(response);
 
-        // data.addAll(response["data"]);
-        data = response["data"];
-        repository.test2 = data;
-        print("===================${repository.test2}");
-        repository.storesModelById.addAll(
-            {"${repository.storeCategories.data![selectedCat2].id}": data});
-        repository.storesModelByIdPages.addAll(
-            {"${repository.storeCategories.data![selectedCat2].id}": 1});
+      // data.addAll(response["data"]);
+      data = response["data"];
+      repository.test2 = data;
+      print("===================${repository.test2}");
+      repository.storesModelById.addAll(
+          {"${repository.storeCategories.data![selectedCat2].id}": data});
+      repository.storesModelByIdPages
+          .addAll({"${repository.storeCategories.data![selectedCat2].id}": 1});
       // }
 
       // repository.saveData(StoresModel, data);
@@ -164,7 +167,7 @@ class StoreController extends GetxController {
               "page":
                   "${repository.storesModelByIdPages["${repository.storeCategories.data![selectedCat2].id}"] + 1}",
               "limit": 10,
-              "tagIds": selectedCats
+              "tagIds": selectedCatsList
             });
 
             if (response["data"].length > 0) {

@@ -1,4 +1,6 @@
+// import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
+import 'package:lemon/core/api/api/retry_interceptors.dart';
 
 import '../errors/exspitions.dart';
 import 'api_consumer.dart';
@@ -6,10 +8,11 @@ import 'api_interceptors.dart';
 import 'end_points.dart';
 
 class DioConsumer extends ApiConsumer {
-   final Dio dio;
+  final Dio dio;
 
-  DioConsumer({required this.dio})
-   {
+  DioConsumer({required this.dio}) {
+    // dio.interceptors.add(DioConnectivityRequestRetrier(
+    //     dio: Dio(), connectivity: Connectivity()));
     dio.options.baseUrl = EndPoint.baseUrl;
     dio.interceptors.add(ApiInterceptor());
     dio.interceptors.add(LogInterceptor(

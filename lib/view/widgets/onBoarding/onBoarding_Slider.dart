@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/controller/onBoarding/onBoarding_Controller.dart';
-import 'package:lemon/routs.dart';
-import 'package:lemon/view/widgets/Custom_Button.dart';
+import '../../../controller/onBoarding/onBoarding_Controller.dart';
+import '../../../routs.dart';
+import '../Custom_Button.dart';
 import '../../../core/constant/AppColor.dart';
 import '../../../core/constant/AppImage.dart';
 

@@ -1,5 +1,10 @@
 // import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
+import 'package:lemon/core/cash/cache_helper.dart';
+import 'package:lemon/core/functions/fcmConfig.dart';
+import 'package:lemon/core/functions/firebase.dart';
+import 'package:lemon/firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MyServices extends GetxService {
@@ -15,4 +20,8 @@ class MyServices extends GetxService {
 
 initialservices() async {
   await Get.putAsync(() => MyServices().init());
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await FirebaseNotifications().initNotifications();
+  fcmconfig();
+  CacheHelper().init();
 }

@@ -1,17 +1,9 @@
 import 'dart:async';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/controller/Stores/storeProfile_Controller.dart';
-import 'package:lemon/view/widgets/Store/Custom_ListStoresCategories.dart';
-import 'package:lemon/view/widgets/Store/StoreProfile.dart';
+import '../widgets/Store/Custom_ListStoresCategories.dart';
 
-import '../../core/class/statusRequest.dart';
-import '../../core/functions/requestStatusControl.dart';
 import '../widgets/Store/Custom_ListStoresSkelton.dart';
-import '../widgets/Store/Custom_StoreAppBar.dart';
-import 'Stores/Store_Profile.dart';
 
 // class TypingEffectScreen extends StatefulWidget {
 //   @override

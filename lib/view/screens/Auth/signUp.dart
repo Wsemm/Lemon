@@ -1,19 +1,12 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:lemon/core/cash/cache_helper.dart';
-import 'package:lemon/core/constant/AppImage.dart';
-import 'package:lemon/core/functions/validator.dart';
-import 'package:lemon/routs.dart';
-import 'package:lemon/view/widgets/Custom_Button.dart';
-import 'package:lemon/view/widgets/Custom_TextFormField.dart';
-import 'package:lottie/lottie.dart';
-import '../../../Repositories/ApiDataRepository.dart';
+import '../../../core/cash/cache_helper.dart';
+import '../../../core/constant/AppImage.dart';
+import '../../../core/functions/validator.dart';
+import '../../../routs.dart';
+import '../../widgets/Custom_Button.dart';
+import '../../widgets/Custom_TextFormField.dart';
 import '../../../controller/Auth/auth_Controller.dart';
-import '../../../core/class/statusRequest.dart';
 import '../../../core/constant/AppColor.dart';
 import '../../../core/functions/requestStatusControl.dart';
 
@@ -22,13 +15,12 @@ class SignUP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Auth_Controller controller = Get.put(Auth_Controller());
+    AuthController controller = Get.put(AuthController());
     // Get.put(Auth_Controller(api: DioConsumer(dio: Dio())));
 
-    return GetBuilder<Auth_Controller>(
-      builder: (controller) => SafeArea(
-          child: Scaffold(
-              body: Form(
+    return GetBuilder<AuthController>(
+      builder: (controller) => Scaffold(
+          body: Form(
         child: ListView(
           children: [
             Form(
@@ -40,13 +32,7 @@ class SignUP extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // IconButton(
-                        //     onPressed: () {
-                        //       Get.back();
-                        //     },
-                        //     icon: const Icon(Icons.arrow_back_ios_outlined)),
                         Container(
-                          // margin: EdgeInsets.only(left: Get.width / 2.5),
                           child: const Text(
                             "SingUp",
                             style: TextStyle(
@@ -59,12 +45,12 @@ class SignUP extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 300,
-                    height: 300,
+                    // width: 300,
+                    // height: 300,
                     margin: EdgeInsets.only(top: Get.height * 0.020),
                     child: Image.asset(
                       AppImage.logo,
-                      // width: Get.width - 150,
+                      width: Get.width - 150,
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -205,7 +191,7 @@ class SignUP extends StatelessWidget {
             )
           ],
         ),
-      ))),
+      )),
     );
   }
 }

@@ -1,11 +1,11 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/controller/homePage_Controller.dart';
-import 'package:lemon/controller/settings_Controller.dart';
-import 'package:lemon/core/cash/cache_helper.dart';
-import 'package:lemon/core/constant/AppColor.dart';
-import 'package:lemon/core/constant/AppImage.dart';
+import '../../controller/homePage_Controller.dart';
+import '../../controller/settings_Controller.dart';
+import '../../core/cash/cache_helper.dart';
+import '../../core/constant/AppColor.dart';
+import '../../core/constant/AppImage.dart';
+import '../../routs.dart';
 
 import '../../Repositories/ApiDataRepository.dart';
 
@@ -87,8 +87,10 @@ class Settings extends StatelessWidget {
                   trailing: const Icon(Icons.person),
                 ),
                 ListTile(
-                  onTap: () {},
-                  title: const Text("Adress"),
+                  onTap: () {
+                    Get.toNamed(AppRout.userAddressInfo);
+                  },
+                  title: const Text("Address"),
                   trailing: const Icon(Icons.location_on),
                 ),
                 ListTile(

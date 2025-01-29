@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/controller/Auth/auth_Controller.dart';
-import 'package:lemon/view/widgets/Custom_TextFormField2.dart';
+import '../../../controller/Auth/auth_Controller.dart';
+import '../../widgets/Custom_TextFormField2.dart';
 
 import '../../../core/constant/AppColor.dart';
 import '../../../core/functions/validator.dart';
@@ -11,7 +11,7 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Auth_Controller controller = Get.find();
+    AuthController controller = Get.find();
     return Scaffold(
       appBar: AppBar(
         title: const Text("Reset password"),

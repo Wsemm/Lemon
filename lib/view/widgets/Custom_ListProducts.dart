@@ -1,10 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/core/constant/AppImage.dart';
-import 'package:lemon/model/store_info_model.dart';
+import '../../Repositories/ApiDataRepository.dart';
+import '../../model/store_info_model.dart';
 import '../../core/constant/AppColor.dart';
 import '../../core/functions/formateNumber.dart';
 import '../../routs.dart';
@@ -147,7 +145,8 @@ class CustomListProductsStore extends StatelessWidget {
                     list == 1
                         ? "${data[index]["name"]}"
                         : "${data!.products![index].name}",
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 15),
                   ),
                 ),
                 Container(

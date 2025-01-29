@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/controller/homePage_Controller.dart';
-import 'package:lemon/core/constant/AppImage.dart';
-import 'package:lemon/view/widgets/Custom_ListProducts.dart';
+import '../../../Repositories/ApiDataRepository.dart';
+import '../../../controller/homePage_Controller.dart';
+import '../../../core/constant/AppImage.dart';
+import '../../widgets/Custom_ListProducts.dart';
 
 class HomeMade extends StatelessWidget {
   const HomeMade({super.key});

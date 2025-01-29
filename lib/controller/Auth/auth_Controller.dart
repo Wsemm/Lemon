@@ -1,20 +1,20 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
-import 'package:firebase_messaging/firebase_Messaging.dart';
+// import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
-import 'package:lemon/controller/homePage_Controller.dart';
-import 'package:lemon/core/api/api/api_consumer.dart';
-import 'package:lemon/core/api/api/dio_consumer.dart';
-import 'package:lemon/core/api/api/end_points.dart';
-import 'package:lemon/core/api/errors/exspitions.dart';
-import 'package:lemon/core/class/statusRequest.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/core/functions/Dialog.dart';
-import 'package:lemon/core/functions/upload_image_toApit.dart';
-import 'package:lemon/model/profile_model.dart';
+import '../homePage_Controller.dart';
+import '../../core/api/api/api_consumer.dart';
+import '../../core/api/api/dio_consumer.dart';
+import '../../core/api/api/end_points.dart';
+import '../../core/api/errors/exspitions.dart';
+import '../../core/class/statusRequest.dart';
+import '../../Repositories/ApiDataRepository.dart';
+import '../../core/functions/Dialog.dart';
+import '../../core/functions/upload_image_toApit.dart';
+import '../../model/profile_model.dart';
 import '../../core/cash/cache_helper.dart';
 import '../../core/constant/AppColor.dart';
 import '../../model/login_model.dart';
@@ -22,7 +22,7 @@ import '../../model/sign_up_model.dart';
 import '../../routs.dart';
 import '../ChatBot/chatBot_Controller.dart';
 
-class Auth_Controller extends GetxController {
+class AuthController extends GetxController {
   // final ApiConsumer api;
   // Auth_Controller({required this.api});
   ChatBotController chatBotController = Get.put(ChatBotController());
@@ -62,7 +62,7 @@ class Auth_Controller extends GetxController {
   late String date2;
   HomePageController homePageController = Get.find();
 
-  final firebaseMessaging = FirebaseMessaging.instance;
+  // final firebaseMessaging = FirebaseMessaging.instance;
 
   signUp() async {
     if (signUpFormstate.currentState!.validate()) {
@@ -103,11 +103,11 @@ class Auth_Controller extends GetxController {
         });
         loginModel = LoginModel.fromJson(response);
         repository.saveData(LoginModel, loginModel);
-        final decodedToken =
-            JwtDecoder.decode(loginModel!.accessToken.toString());
 
         CacheHelper()
             .saveData(key: ApiKey.accessToken, value: loginModel!.accessToken);
+        CacheHelper().saveData(
+            key: ApiKey.refreshToken, value: loginModel!.refreshToken);
         statusRequest = StatusRequest.sucess;
         if (loginModel!.user!.verifiedAt == null) {
           sendEmail();
@@ -281,8 +281,8 @@ class Auth_Controller extends GetxController {
         update();
         final response =
             await api.post(isFromData: true, EndPoint.uploadImage, data: {
-          "folder": "profile2",
-          "name": "test new2",
+          "folderName": "profile2",
+          "fileName": "test new2",
           "file": await uploadImageToAPI(image!),
         });
         imageURL = response["path"];
@@ -293,6 +293,7 @@ class Auth_Controller extends GetxController {
         serverFailuer(
             statusRequest = StatusRequest.failuer, e.errModel.message);
         Get.snackbar("failuer", e.errModel.message);
+        update();
         // TODO
       }
     }
@@ -413,7 +414,7 @@ class Auth_Controller extends GetxController {
     PasswordReset = TextEditingController();
     RePasswordReset = TextEditingController();
     // test();
-  
+
     super.onInit();
   }
 

@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/core/api/errors/error_model.dart';
+import '../../../Repositories/ApiDataRepository.dart';
+import '../../../core/api/errors/error_model.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../controller/Auth/auth_Controller.dart';
@@ -41,7 +41,7 @@ class ChatBotUi extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Auth_Controller controller = Get.find();
+    AuthController controller = Get.find();
     ApiDataRepository repository = Get.find();
 
     ErrorModel errorModel;
@@ -98,12 +98,12 @@ class ChatBotUi extends StatelessWidget {
                     if (index == currentQuestionIndex)
                       if (loading == false)
                         // if (questionsList[questionIndex].length ==
-                            // secondList[questionIndex].length)
-                          Container(
-                              padding:
-                                  EdgeInsets.only(bottom: Get.height * 0.020),
-                              // style for select awnsers mode
-                              child: Chose(index: secondIndex)),
+                        // secondList[questionIndex].length)
+                        Container(
+                            padding:
+                                EdgeInsets.only(bottom: Get.height * 0.020),
+                            // style for select awnsers mode
+                            child: Chose(index: secondIndex)),
                   // START awnsers textField part
                   //contditon to start awnsers after questions and to loop until final question
                   if (index < answers.length)
@@ -168,7 +168,7 @@ class ChatBotUi extends StatelessWidget {
         if (secondIndex == 13)
           // condition to show loading animation
           if (loading == false)
-            GetBuilder<Auth_Controller>(
+            GetBuilder<AuthController>(
               builder: (controller) => handlingRequestStatus(
                   statusRequest: controller.statusRequest,
                   widget: Container(

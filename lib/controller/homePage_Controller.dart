@@ -1,17 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
-import 'package:firebase_messaging/firebase_Messaging.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/controller/Auth/auth_Controller.dart';
-import 'package:lemon/core/api/api/api_consumer.dart';
-import 'package:lemon/core/api/api/dio_consumer.dart';
-import 'package:lemon/core/cash/cache_helper.dart';
-import 'package:lemon/core/constant/AppImage.dart';
-import 'package:lemon/model/products_model.dart';
-import 'package:lemon/routs.dart';
-import 'package:path/path.dart';
+import '../Repositories/ApiDataRepository.dart';
+import '../core/api/api/api_consumer.dart';
+import '../core/api/api/dio_consumer.dart';
+import '../core/cash/cache_helper.dart';
+import '../core/constant/AppImage.dart';
+import '../model/products_model.dart';
+import '../routs.dart';
 import '../core/api/api/end_points.dart';
 import '../core/api/errors/exspitions.dart';
 import '../core/class/statusRequest.dart';
@@ -22,7 +20,7 @@ class HomePageController extends GetxController {
   int pageIndex = 0;
   int page = 1;
   int limt = 5;
-  List images = [], mainCategories = [];
+  List slidersImages = [], mainCategories = [];
   ApiConsumer api = DioConsumer(dio: Dio());
   StatusRequest statusRequest = StatusRequest.none;
   ProductsModel? productsModel;
@@ -65,7 +63,7 @@ class HomePageController extends GetxController {
       //   horizontal: 5,
       // ),
       child: CachedNetworkImage(
-        imageUrl: images[index]["imagePath"],
+        imageUrl: slidersImages[index]["imagePath"],
         width: double.infinity,
         fit: BoxFit.cover,
       ),
@@ -224,8 +222,9 @@ class HomePageController extends GetxController {
       final response = await api.get(
         EndPoint.home,
       );
-      images = response["data"]["sliders"];
+      slidersImages = response["data"]["sliders"];
       mainCategories = response["data"]["mainCategories"];
+      repository.addressList = response["data"]["myAddress"];
       statusRequest = StatusRequest.sucess;
       update();
     } on ServerException catch (e) {
@@ -326,6 +325,17 @@ class HomePageController extends GetxController {
 
     update();
   }
+
+  // refreshToken() async {
+  //   statusRequest = StatusRequest.loading;
+  //   update();
+  //   try {
+  //     final response = await api.post(EndPoint.refreshToken, queryParameters: {"refresh-token":"${CacheHelper().getData(key: "${ApiKey.accessToken}")}"});
+  //     // CacheHelper().saveData(key: ApiKey.accessToken, value: response[""]);
+
+  //     update();
+  //   } on ServerException catch (e) {}
+  // }
 
   @override
   void onInit() {

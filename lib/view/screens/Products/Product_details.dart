@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
+import '../../../Repositories/ApiDataRepository.dart';
 
 import '../../../controller/Products/product_controller.dart';
 import '../../../core/constant/AppColor.dart';
@@ -26,16 +26,16 @@ class ProductDetails extends StatelessWidget {
               switch (controller.screen) {
                 case "store":
                   controller.addToCart(
-                    repository.storeProducts[controller.index]["storeId"],
-                    repository.storeProducts[controller.index]["id"],
-                    1,
+                    // repository.storeProducts[controller.index]["storeId"],
+                    repository.storeProducts[controller.productId]["id"],
+                    // 1,
                   );
                   break;
                 case "search":
                   controller.addToCart(
-                    repository.productSearchData[controller.index]["storeId"],
-                    repository.productSearchData[controller.index]["id"],
-                    2,
+                    // repository.productSearchData[controller.index]["storeId"],
+                    repository.productSearchData[controller.productId]["id"],
+                    // 2,
 
                     // repository.productSearchData[controller.index]["id"],
                     // repository.productSearchData[controller.index]["price"],
@@ -50,10 +50,11 @@ class ProductDetails extends StatelessWidget {
                   break;
                 case "homePage":
                   controller.addToCart(
-                      repository.sections[2]["items"][controller.index]
-                          ["storeId"],
-                      repository.sections[2]["items"][controller.index]["id"],
-                      3);
+                    // repository.sections[2]["items"][controller.index]
+                    // ["storeId"],
+                    repository.sections[2]["items"][controller.productId]["id"],
+                    // 3
+                  );
                   break;
                 default:
               }
@@ -115,7 +116,7 @@ class ProductDetails extends StatelessWidget {
                         ? repository.prodcutDetails
                         : repository.sections[2]["items"],
             details: controller.screen,
-            index: controller.index,
+            index: controller.productId,
             color: controller.colorList)
 
         //  Column(

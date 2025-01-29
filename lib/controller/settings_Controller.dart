@@ -1,15 +1,12 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/core/api/api/api_consumer.dart';
-import 'package:lemon/core/api/api/dio_consumer.dart';
-import 'package:lemon/core/class/statusRequest.dart';
-import 'package:lemon/core/functions/Dialog.dart';
-import 'package:lemon/model/profile_model.dart';
+import '../Repositories/ApiDataRepository.dart';
+import '../core/api/api/api_consumer.dart';
+import '../core/api/api/dio_consumer.dart';
+import '../core/class/statusRequest.dart';
+import '../core/functions/Dialog.dart';
+import '../model/profile_model.dart';
 
-import '../core/api/api/end_points.dart';
-import '../core/api/errors/exspitions.dart';
 import '../core/cash/cache_helper.dart';
 import '../routs.dart';
 
@@ -30,7 +27,7 @@ class SettingsController extends GetxController {
     } else {
       myShowDialog("You Still Guest", "Do you want to SignUp", "Skip", "SignUp",
           () {
-            Get.back();
+        Get.back();
         // Get.offAllNamed(AppRout.signUP);
       }, () {
         // Get.offAllNamed(AppRout.chatbot);
@@ -38,5 +35,4 @@ class SettingsController extends GetxController {
       });
     }
   }
-
 }

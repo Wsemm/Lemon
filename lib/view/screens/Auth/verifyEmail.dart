@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/controller/Auth/auth_Controller.dart';
-import 'package:lemon/core/class/statusRequest.dart';
-import 'package:lemon/view/widgets/Custom_Button.dart';
+import '../../../controller/Auth/auth_Controller.dart';
+import '../../../core/class/statusRequest.dart';
 
 import '../../../core/constant/AppColor.dart';
 import '../../../core/functions/validator.dart';
@@ -15,13 +13,13 @@ class verifyEmail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Auth_Controller controller = Get.put(Auth_Controller());
+    AuthController controller = Get.put(AuthController());
     return SafeArea(
         child: Scaffold(
             backgroundColor: AppColor.primaryColor,
             body: ListView(
               children: [
-                GetBuilder<Auth_Controller>(
+                GetBuilder<AuthController>(
                   builder: (controller) => Column(
                     children: [
                       Container(

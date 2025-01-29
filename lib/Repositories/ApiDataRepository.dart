@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 import '../model/login_model.dart';
 import '../model/my_cart_model.dart';
@@ -26,7 +25,8 @@ class ApiDataRepository extends GetxController {
       storesModel = [],
       storeProducts = [],
       productSearchData = [],
-      prodcutDetails=[],
+      prodcutDetails = [],
+      addressList = [],
       storeProductSearchData = [];
 
 // save all the data of the stores where beaning filtered by id example {"store id =11" : data}

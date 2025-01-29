@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/controller/ChatBot/chatBot_Controller.dart';
-import 'package:lemon/core/constant/AppColor.dart';
+import '../../../controller/ChatBot/chatBot_Controller.dart';
+import '../../../core/constant/AppColor.dart';
 
 class Chose extends StatelessWidget {
   const Chose({super.key, required this.index});

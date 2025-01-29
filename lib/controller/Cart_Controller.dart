@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
-import 'package:lemon/core/api/api/api_consumer.dart';
-import 'package:lemon/core/api/api/dio_consumer.dart';
-import 'package:lemon/view/screens/cart/cart.dart';
+import '../core/api/api/api_consumer.dart';
+import '../core/api/api/dio_consumer.dart';
 
 import '../Repositories/ApiDataRepository.dart';
 import '../core/api/api/end_points.dart';
@@ -19,6 +18,7 @@ class CartController extends GetxController {
   int quantity = 1;
   var length;
   List test23 = [];
+
   getProductDetails(id) async {
     statusRequest = StatusRequest.loading;
     update();
@@ -46,13 +46,13 @@ class CartController extends GetxController {
       myCartModel = MyCartModel.fromJson(response);
       repository.myCart = myCartModel;
 
-      for (var i = 0; i <= repository.myCart.data!.length - 1; i++) {
+      for (var i = 0; i <= repository.myCart.data!.cartItems!.length - 1; i++) {
         productsQuantity.add({
-          "${repository.myCart.data![i].cartItems![0].id}":
-              repository.myCart.data![i].cartItems![0].quantity!
+          "${repository.myCart.data!.cartItems![i].id}":
+              repository.myCart.data!.cartItems![i].quantity!
         });
       }
-
+      print("===========aaaaaaaaaa${productsQuantity}===========aaaaaaaaaa");
       // print("===============${productsQuantity}");
       statusRequest = StatusRequest.sucess;
 
@@ -64,15 +64,18 @@ class CartController extends GetxController {
     update();
   }
 
-  patchMyCart(int productId, int quantity, int storeId, CartId) async {
+  patchMyCart(int productId, int quantity) async {
     statusRequest = StatusRequest.loading;
     update();
     try {
-      final response = await api.patch("${EndPoint.getMyCart}/$CartId", data: {
-        "storeId": storeId,
-        "selectedProducts": [
-          {"productId": productId, "quantity": quantity}
-        ]
+      final response = await api.patch("${EndPoint.getMyCart}", data: {
+        "productId": productId,
+        "quantity": quantity
+
+        // "storeId": storeId,
+        // "selectedProducts": [
+        //   {"productId": productId, "quantity": quantity}
+        // ]
       });
       // myCartModel = MyCartModel.fromJson(response);
       // repository.myCart = myCartModel;
@@ -136,13 +139,35 @@ class CartController extends GetxController {
     update();
   }
 
-  addQuantity() {
-    quantity++;
+  deleteFromCart(int porductId) async {
+    statusRequest = StatusRequest.loading;
+    update();
+    try {
+      final response =
+          await api.delete(EndPoint.getMyCart, data: {"productId": porductId});
+      statusRequest = StatusRequest.sucess;
+      // myCartModel = MyCartModel.fromJson(response);
+      // repository.myCart = myCartModel;
+      // for (var i = 0; i <= repository.myCart.data!.cartItems!.length - 1; i++) {
+      //   productsQuantity.add({
+      //     "${repository.myCart.data!.cartItems![i].id}":
+      //         repository.myCart.data!.cartItems![i].quantity!
+      //   });
+      // }
+      update();
+    } on ServerException catch (e) {
+      serverFailuer(statusRequest = StatusRequest.failuer, e.errModel.message);
+      Get.snackbar("failuer", e.errModel.message);
+    }
+    update();
   }
 
-  removeQuantity() {
-    quantity--;
-  }
+  // addQuantity() {
+  //   quantity++;
+  // }
+  // removeQuantity() {
+  //   quantity--;
+  // }
 
   @override
   void onInit() {

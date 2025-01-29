@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/core/class/statusRequest.dart';
+import '../../../Repositories/ApiDataRepository.dart';
+import '../../../core/class/statusRequest.dart';
 
 import '../../../core/functions/requestStatusControl.dart';
 import '../../../routs.dart';

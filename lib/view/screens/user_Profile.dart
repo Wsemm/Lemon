@@ -1,12 +1,12 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/controller/userInfo_Controller.dart';
-import 'package:lemon/core/constant/AppImage.dart';
+import '../../Repositories/ApiDataRepository.dart';
+import '../../controller/userInfo_Controller.dart';
+import '../../core/constant/AppImage.dart';
 
-import '../../controller/Auth/auth_Controller.dart';
 import '../../core/class/statusRequest.dart';
 import '../../core/constant/AppColor.dart';
 import '../../core/functions/validator.dart';
@@ -53,29 +53,44 @@ class UserProfile extends StatelessWidget {
                                   child: repository.profileModel.avatarUrl ==
                                           null
                                       ? controller.image == null
-                                          ? const Hero(
+                                          ? Hero(
                                               tag: "profilePic",
-                                              child: CircleAvatar(
-                                                maxRadius: 55,
-                                                backgroundImage:
-                                                    AssetImage(AppImage.user),
+                                              child: ClipOval(
+                                                child: Image.asset(
+                                                  AppImage.user,
+                                                  height: Get.height / 7,
+                                                  width: Get.width / 3,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
                                             )
                                           : Hero(
                                               tag: "profilePic",
-                                              child: CircleAvatar(
-                                                maxRadius: 55,
-                                                backgroundImage: FileImage(File(
-                                                    controller.image!.path)),
+                                              child: ClipOval(
+                                                child: Image.file(
+                                                  File(controller.image!.path),
+                                                  height: Get.height / 7,
+                                                  width: Get.width / 3,
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
                                             )
                                       : Hero(
                                           tag: "profilePic",
-                                          child: CircleAvatar(
-                                            maxRadius: 55,
-                                            backgroundImage: NetworkImage(
-                                                repository
-                                                    .profileModel.avatarUrl!),
+                                          child: ClipOval(
+                                            child: CachedNetworkImage(
+                                              imageUrl: repository
+                                                  .profileModel.avatarUrl!,
+                                              placeholder: (context, url) =>
+                                                  CircularProgressIndicator(),
+                                              errorWidget:
+                                                  (context, url, error) =>
+                                                      Icon(Icons.error),
+                                              // Set the width and height for the circular image
+                                              height: Get.height / 7,
+                                              width: Get.width / 3,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                 ),

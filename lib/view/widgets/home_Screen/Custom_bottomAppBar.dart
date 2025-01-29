@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../controller/HomeScreen_Controller.dart';
-import '../../../core/constant/AppColor.dart';
+import 'package:lemon/controller/homeScreen_Controller.dart';
+import 'package:lemon/core/constant/AppColor.dart';
 
 class CustomBottomAppBarHome extends StatelessWidget {
   const CustomBottomAppBarHome({super.key});
@@ -11,7 +11,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
     Get.put(HomeScreenController());
     return GetBuilder<HomeScreenController>(
       builder: (controller) => Container(
-        height: Get.height * 0.07,
+        height: Get.height * 0.075,
         decoration: const BoxDecoration(
             color: AppColor.secondColor,
             border: Border(
@@ -36,7 +36,7 @@ class CustomBottomAppBarHome extends StatelessWidget {
                   return index == 2
                       ? const Spacer()
                       : SizedBox(
-                          width: Get.width*0.19,
+                          width: Get.width * 0.19,
                           child: CustomButtonAppBar(
                             onPressed: () {
                               controller.changePage(i);
@@ -71,11 +71,12 @@ class CustomButtonAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialButton(
-      onPressed: onPressed,
+    return GestureDetector(
+      onTap: onPressed,
       child: Icon(
         iconData,
         color: active == true ? AppColor.primaryColor : Colors.grey[600],
+        size: Get.width * 0.070,
       ),
     );
   }

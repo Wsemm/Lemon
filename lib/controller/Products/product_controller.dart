@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/core/api/api/api_consumer.dart';
-import 'package:lemon/core/api/api/dio_consumer.dart';
-import 'package:lemon/model/products_model.dart';
+import '../../Repositories/ApiDataRepository.dart';
+import '../../core/api/api/api_consumer.dart';
+import '../../core/api/api/dio_consumer.dart';
+import '../../model/products_model.dart';
 
 import '../../core/api/api/end_points.dart';
 import '../../core/api/errors/exspitions.dart';
@@ -16,7 +16,7 @@ class ProductDetailsController extends GetxController {
 
   StatusRequest statusRequest = StatusRequest.none;
   ProductsModel? productsModel;
-  late int index;
+  late int productId;
   late String screen;
 
   getProductDetails(id) async {
@@ -80,15 +80,12 @@ class ProductDetailsController extends GetxController {
     update();
   }
 
-  addToCart(int storeId, int productId, int quantity) async {
+  addToCart(int productId) async {
     statusRequest = StatusRequest.loading;
     update();
     try {
       final response = await api.post(EndPoint.getMyCart, data: {
-        "storeId": storeId,
-        "selectedProducts": [
-          {"productId": productId, "quantity": quantity}
-        ]
+        "productId": productId,
       });
 
       statusRequest = StatusRequest.sucess;
@@ -111,7 +108,7 @@ class ProductDetailsController extends GetxController {
 
   @override
   void onInit() {
-    index = Get.arguments["productId"];
+    productId = Get.arguments["productId"];
     screen = Get.arguments["details"];
 
     super.onInit();

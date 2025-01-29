@@ -20,7 +20,6 @@ version: 1.0.0+1
 
 environment:
   sdk: ^3.6.1
-  
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -29,73 +28,51 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  auto_animated: ^3.2.0
+  badges: ^3.1.1
+  cached_network_image: ^3.2.3
+  carousel_slider: ^5.0.0
+  connectivity_plus: ^6.1.2
+  cupertino_icons: ^1.0.2
+  dartz: ^0.10.1
+  dio: ^5.4.0
+  dropdown_search: ^5.0.6
+  easy_splash_screen: ^1.0.4
+  firebase_core: ^3.10.1
+  firebase_messaging: ^15.2.1
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  get: ^4.6.5
-  jiffy: ^6.2.1
-  intl: ^0.18.1
-  cached_network_image: ^3.2.3
-  show_up_animation: ^2.0.0
-  auto_animated: ^3.2.0
-  flutter_polyline_points: ^1.0.0
-  shared_preferences: ^2.2.2
-  path: ^1.8.2
-  qr_flutter: ^4.1.0
-  grouped_list: ^5.1.2
-  url_launcher: ^6.1.11
-  dropdown_search: ^5.0.6
-  badges: ^3.1.1
-  flutter_svg: ^2.0.5
-  font_awesome_flutter: ^10.4.0
-  fluttericon: ^2.0.0
-  dartz: ^0.10.1
-  responsive_builder: ^0.7.0
-  jwt_decoder: ^2.0.1
-  dio: ^5.4.0
-  image_picker: ^1.0.4
-  lottie: ^2.3.2
+  flutter_local_notifications: ^18.0.1
   flutter_otp_text_field: ^1.1.1
-  easy_splash_screen: ^1.0.4
-  carousel_slider: ^5.0.0
-  smooth_page_indicator: ^1.2.0+3
+  flutter_ringtone_player: ^4.0.0+3
+  flutter_svg: ^2.0.5
+  fluttericon: ^2.0.0
+  font_awesome_flutter: ^10.4.0
+  get: ^4.6.5
+  google_generative_ai: ^0.4.6
   googleapis: ^11.3.0
   googleapis_auth: ^1.4.1
-  firebase_messaging: ^14.7.10
-  firebase_core: ^2.24.2
-  # flutter_chat_ui: ^1.6.11
-  # flutter_chat_types: ^3.6.2
-  # http: ^0.13.6
-  # geolocator: ^10.1.0
-  # geocoding: ^2.1.1
-  # flutter_local_notifications: ^16.3.0
-  # sqflite: ^2.2.8+4
-  # scan: ^1.6.0
-  # device_preview: ^0.1.4-beta
-  # flutter_gifimage: ^1.0.1
-  
-  
-  
-
+  grouped_list: ^5.1.2
+  image_picker: ^1.0.4
+  intl: ^0.18.1
+  jiffy: ^6.2.1
+  jwt_decoder: ^2.0.1
+  lottie: ^2.3.2
+  path: ^1.8.2
+  qr_flutter: ^4.1.0
+  responsive_builder: ^0.7.0
+  shared_preferences: ^2.2.2
+  show_up_animation: ^2.0.0
+  smooth_page_indicator: ^1.2.0+3
+  url_launcher: ^6.1.11
 
 dev_dependencies:
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
 
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
-  flutter_lints: ^2.0.0
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -109,13 +86,10 @@ flutter:
     - assets/images/
     - assets/lottiefiles/
   #   - images/a_dot_ham.jpeg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

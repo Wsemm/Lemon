@@ -1,8 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import '../../../controller/Products/product_controller.dart';
 import '../../../core/constant/AppColor.dart';
 
 class CustomProductDetails extends StatelessWidget {

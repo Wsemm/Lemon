@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lemon/core/class/statusRequest.dart';
-import 'package:lemon/core/constant/AppColor.dart';
-import 'package:lemon/view/screens/Stores/Stores.dart';
+import '../class/statusRequest.dart';
+import '../constant/AppColor.dart';
 
 class handlingRequestStatus extends StatelessWidget {
   const handlingRequestStatus(

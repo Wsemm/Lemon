@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/routs.dart';
+import '../../../routs.dart';
 import '../../../core/constant/AppColor.dart';
 
 class StoreProfileAppBar extends StatelessWidget {

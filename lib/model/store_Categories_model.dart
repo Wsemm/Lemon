@@ -1,4 +1,3 @@
-
 class StoreCategories_model {
   String? message;
   int? statusCode;
@@ -9,7 +8,9 @@ class StoreCategories_model {
   StoreCategories_model.fromJson(Map<String, dynamic> json) {
     message = json["message"];
     statusCode = json["statusCode"];
-    data = json["data"] == null ? null : (json["data"] as List).map((e) => Data.fromJson(e)).toList();
+    data = json["data"] == null
+        ? null
+        : (json["data"] as List).map((e) => Data.fromJson(e)).toList();
   }
 
   static List<StoreCategories_model> fromList(List<Map<String, dynamic>> list) {
@@ -20,7 +21,7 @@ class StoreCategories_model {
     final Map<String, dynamic> _data = <String, dynamic>{};
     _data["message"] = message;
     _data["statusCode"] = statusCode;
-    if(data != null) {
+    if (data != null) {
       _data["data"] = data?.map((e) => e.toJson()).toList();
     }
     return _data;

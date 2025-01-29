@@ -2,11 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/controller/Auth/auth_Controller.dart';
-import 'package:lemon/core/class/statusRequest.dart';
-import 'package:lemon/core/functions/requestStatusControl.dart';
-import 'package:lemon/core/functions/validator.dart';
-import '../../../Repositories/ApiDataRepository.dart';
+import '../../../controller/Auth/auth_Controller.dart';
+import '../../../core/class/statusRequest.dart';
+import '../../../core/functions/validator.dart';
 import '../../../core/constant/AppColor.dart';
 import '../../widgets/Custom_TextFormField2.dart';
 
@@ -15,9 +13,9 @@ class PersonalInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Auth_Controller controller = Get.put(Auth_Controller());
+    AuthController controller = Get.put(AuthController());
     return SafeArea(
-        child: GetBuilder<Auth_Controller>(
+        child: GetBuilder<AuthController>(
       builder: (controller) => Scaffold(
         appBar: AppBar(
           title: const Center(child: Text("My Profile")),
@@ -38,29 +36,41 @@ class PersonalInfo extends StatelessWidget {
                             color: Colors.grey[350],
                           ),
                           Container(
-                            margin: const EdgeInsets.only(top: 50),
-                            width: Get.width,
-                            height: Get.height / 6,
+                            margin: EdgeInsets.only(
+                              top: Get.height * 0.040,
+                            ),
+                            // width: Get.width / 2,
+                            // height: Get.height / 6,
                             child: controller.image == null
-                                ? const CircleAvatar(
-                                    backgroundColor: AppColor.primaryColor,
-                                    child: Icon(
-                                      Icons.person,
-                                      color: Colors.white,
-                                      size: 50,
-                                    )
+                                ? Container(
+                                    margin:
+                                        EdgeInsets.only(left: Get.width * 0.25),
+                                    width: Get.width / 2,
+                                    height: Get.height / 6,
+                                    child: CircleAvatar(
+                                        backgroundColor: AppColor.primaryColor,
+                                        child: Icon(
+                                          Icons.person,
+                                          color: Colors.white,
+                                          size: Get.width / 7,
+                                        )
 
-                                    // CachedNetworkImage(
-                                    //     imageUrl: controller.image.toString())
+                                        // CachedNetworkImage(
+                                        //     imageUrl: controller.image.toString())
 
-                                    )
-                                : CircleAvatar(
-                                    backgroundColor: AppColor.primaryColor,
-                                    backgroundImage:
-                                        FileImage(File(controller.image!.path)),
-
-                                    // CachedNetworkImage(
-                                    //     imageUrl: controller.image.toString())
+                                        ),
+                                  )
+                                : Container(
+                                    margin:
+                                        EdgeInsets.only(left: Get.width * 0.33),
+                                    child: ClipOval(
+                                      child: Image.file(
+                                        File(controller.image!.path),
+                                        height: Get.height / 6,
+                                        width: Get.width / 3,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                                   ),
                           ),
                           Container(
@@ -73,7 +83,8 @@ class PersonalInfo extends StatelessWidget {
                                           controller.pickImage();
                                           // await controller.uploadImage();
                                         },
-                                        icon: const Icon(Icons.camera_alt_outlined)),
+                                        icon: const Icon(
+                                            Icons.camera_alt_outlined)),
                                   )
                                 : null,
                           )
@@ -83,7 +94,7 @@ class PersonalInfo extends StatelessWidget {
                   ),
                   CustomTextFormField(
                       validator: (val) {
-                        return validator(val!, 1, 30, "name","");
+                        return validator(val!, 1, 30, "name", "");
                       },
                       controller: controller.name,
                       prefix: Icons.person,
@@ -91,21 +102,21 @@ class PersonalInfo extends StatelessWidget {
                   CustomTextFormField(
                       keyboardType: TextInputType.phone,
                       validator: (val) {
-                        return validator(val!, 10, 10, "phone","");
+                        return validator(val!, 10, 10, "phone", "");
                       },
                       controller: controller.phoneNumber,
                       prefix: Icons.phone,
                       text: "Enter your phone Number"),
                   CustomTextFormField(
                       validator: (val) {
-                        return validator(val!, 1, 15, "city","");
+                        return validator(val!, 1, 15, "city", "");
                       },
                       controller: controller.city,
                       prefix: Icons.location_city,
                       text: "Enter your City"),
                   CustomTextFormField(
                       validator: (val) {
-                        return validator(val!, 1, 30, "date","");
+                        return validator(val!, 1, 30, "date", "");
                       },
                       readOnly: true,
                       onTap: () {

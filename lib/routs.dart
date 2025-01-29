@@ -1,20 +1,22 @@
 import 'package:get/get.dart';
-import 'package:lemon/view/screens/Auth/login.dart';
-import 'package:lemon/view/screens/Auth/verifyEmail.dart';
-import 'package:lemon/view/screens/Orders/orders.dart';
-import 'package:lemon/view/screens/Products/Product_details.dart';
-import 'package:lemon/view/screens/Stores/Store_Profile.dart';
-import 'package:lemon/view/screens/Stores/Stores.dart';
-import 'package:lemon/view/screens/cart/CartStoreProducts.dart';
-import 'package:lemon/view/screens/cart/cart.dart';
-import 'package:lemon/view/screens/home/homePage.dart';
-import 'package:lemon/view/screens/home/home_screen.dart';
-import 'package:lemon/view/screens/onBoarding.dart';
-import 'package:lemon/view/screens/Auth/signUp.dart';
-import 'package:lemon/view/screens/User_Info/personal_Info.dart';
-import 'package:lemon/view/screens/splashScreen.dart';
-import 'package:lemon/view/screens/test.dart';
-import 'package:lemon/view/screens/user_Profile.dart';
+import 'view/screens/Auth/login.dart';
+import 'view/screens/Auth/verifyEmail.dart';
+import 'view/screens/Orders/orders.dart';
+import 'view/screens/Products/Product_details.dart';
+import 'view/screens/Stores/Store_Profile.dart';
+import 'view/screens/Stores/Stores.dart';
+import 'view/screens/User_Info/addUserAdress.dart';
+import 'view/screens/User_Info/userAddres_info.dart';
+import 'view/screens/cart/CartStoreProducts.dart';
+import 'view/screens/cart/cart.dart';
+import 'view/screens/home/homePage.dart';
+import 'view/screens/home/home_screen.dart';
+import 'view/screens/onBoarding.dart';
+import 'view/screens/Auth/signUp.dart';
+import 'view/screens/User_Info/personal_Info.dart';
+import 'view/screens/splashScreen.dart';
+import 'view/screens/test.dart';
+import 'view/screens/user_Profile.dart';
 
 import 'core/middleware/MyMiddleWare.dart';
 import 'view/screens/Auth/forgetPassword.dart';
@@ -43,6 +45,8 @@ class AppRout {
   static const String cart = "/cart";
   static const String orders = "/orders";
   static const String cartStoreProducts = "/cartStoreProducts";
+  static const String userAddressInfo = "/UserAddressInfo";
+  static const String addUserAddressInfo = "/adduserAddressInfo";
 }
 
 // CacheHelper().getDataString(key: "step")!=1? AppRout.homePage :
@@ -70,5 +74,8 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(name: AppRout.test, page: () => const test()),
   GetPage(name: AppRout.cart, page: () => const Cart()),
   GetPage(name: AppRout.orders, page: () => const Orders()),
-  GetPage(name: AppRout.cartStoreProducts, page: () => const CartStoreProducts()),
+  GetPage(
+      name: AppRout.cartStoreProducts, page: () => const CartStoreProducts()),
+  GetPage(name: AppRout.userAddressInfo, page: () => const UserAddresInfo()),
+  GetPage(name: AppRout.addUserAddressInfo, page: () => const AddUserAddress())
 ];

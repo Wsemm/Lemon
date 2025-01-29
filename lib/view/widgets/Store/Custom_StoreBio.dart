@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/Repositories/ApiDataRepository.dart';
-import 'package:lemon/model/stores_model.dart';
+import '../../../Repositories/ApiDataRepository.dart';
+import '../../../model/stores_model.dart';
 import '../../../controller/Stores/storeProfile_Controller.dart';
 
 class bio extends StatelessWidget {
@@ -36,7 +36,8 @@ class bio extends StatelessWidget {
                             controller.details == "filteredStore"
                         ? data["brand"]
                         : "${data[controller.storeId]["brand"]}",
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                 ),
               ],

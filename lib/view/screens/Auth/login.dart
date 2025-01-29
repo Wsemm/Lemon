@@ -1,15 +1,11 @@
-import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/core/constant/AppImage.dart';
-import 'package:lemon/routs.dart';
-import 'package:lemon/view/widgets/Custom_Button.dart';
-import 'package:lemon/view/widgets/Custom_TextFormField.dart';
+import '../../../core/constant/AppImage.dart';
+import '../../../routs.dart';
+import '../../widgets/Custom_Button.dart';
+import '../../widgets/Custom_TextFormField.dart';
 import '../../../core/functions/requestStatusControl.dart';
 import '../../../controller/Auth/auth_Controller.dart';
-import '../../../core/class/statusRequest.dart';
 import '../../../core/constant/AppColor.dart';
 import '../../../core/functions/validator.dart';
 
@@ -18,9 +14,8 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(Auth_Controller());
-    return SafeArea(
-        child: GetBuilder<Auth_Controller>(
+    Get.put(AuthController());
+    return GetBuilder<AuthController>(
       builder: (controller) => Scaffold(
           body: ListView(
         children: [
@@ -33,11 +28,6 @@ class Login extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // IconButton(
-                      //     onPressed: () {
-                      //       Get.back();
-                      //     },
-                      //     icon: const Icon(Icons.arrow_back_ios_outlined)),
                       Container(
                         margin: EdgeInsets.only(bottom: Get.height * 0.020),
                         child: const Text(
@@ -62,7 +52,7 @@ class Login extends StatelessWidget {
                       ),
                       Custom_TextFormField(
                           validator: (val) {
-                            return validator(val!, 6, 30, "email","");
+                            return validator(val!, 6, 30, "email", "");
                           },
                           controller: controller.email,
                           focusNode: controller.focusnode3,
@@ -71,7 +61,7 @@ class Login extends StatelessWidget {
                       Custom_TextFormField(
                         obsecure: controller.isShowPassword,
                         validator: (val) {
-                          return validator(val!, 8, 16, "password","");
+                          return validator(val!, 8, 16, "password", "");
                         },
                         controller: controller.password,
                         focusNode: controller.focusnode4,
@@ -148,6 +138,6 @@ class Login extends StatelessWidget {
           )
         ],
       )),
-    ));
+    );
   }
 }

@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lemon/controller/Cart_Controller.dart';
+import 'package:lemon/model/my_cart_model.dart';
+import '../../../controller/Cart_Controller.dart';
 
 import '../../../core/constant/AppColor.dart';
-import '../../../core/constant/AppImage.dart';
 
 class CustomCartProductds extends StatelessWidget {
   const CustomCartProductds({
@@ -38,7 +38,11 @@ class CustomCartProductds extends StatelessWidget {
               child: SizedBox(
                 height: double.infinity,
                 child: CachedNetworkImage(
-                    imageUrl: "${data[index].cartItems![index].productImageUrl}"),
+                    // imageUrl: "${data.data!.cartItems![0].product!.imageUrl}"),
+
+                    imageUrl: "${data[index].product!.imageUrl}"),
+
+                // "${data[index].cartItems![index].productImageUrl}"),
               )),
           Expanded(
               flex: 6,
@@ -52,13 +56,14 @@ class CustomCartProductds extends StatelessWidget {
                             bottom: Get.height * 0.020,
                             top: Get.height * 0.010,
                             left: Get.width * 0.020),
-                        child:
-                            Text("${data[index].cartItems![0].productName}")),
+                        child: Text("${data[index].product.name}")),
+
+                    // child: Text("${data[index].product.productName}")),
                     Container(
                         alignment: Alignment.topLeft,
                         margin: EdgeInsets.only(left: Get.width * 0.020),
                         child: Text(
-                          "${data[index].cartItems![0].price}",
+                          "${data[index].product.price}",
                           style: const TextStyle(color: AppColor.secondColor),
                         )),
                   ],
@@ -72,21 +77,16 @@ class CustomCartProductds extends StatelessWidget {
                   children: [
                     InkWell(
                         onTap: () {
-                          if (productsQuantity[index]
-                                  ["${data[index].cartItems![0].id!}"] !=
+                          if (productsQuantity[index]["${data[index].id!}"] !=
                               1) {
-                            productsQuantity[index]
-                                    ["${data[index].cartItems![0].id!}"] =
-                                productsQuantity[index]
-                                        ["${data[index].cartItems![0].id!}"]! -
+                            productsQuantity[index]["${data[index].id!}"] =
+                                productsQuantity[index]["${data[index].id!}"]! -
                                     1;
                           }
                           controller.patchMyCart(
-                              data[index].cartItems![0].productId!,
-                              productsQuantity[index]
-                                  ["${data[index].cartItems![0].id!}"]!,
-                              data[index].storeId!,
-                              data[index].cartItems![0].cartId!);
+                            data[index].product.id!,
+                            productsQuantity[index]["${data[index].id!}"]!,
+                          );
                           controller.update();
                         },
                         child: Container(
@@ -97,24 +97,20 @@ class CustomCartProductds extends StatelessWidget {
                         horizontal: Get.width * 0.010,
                       ),
                       child: Text(
-                        "${productsQuantity[index]["${data[index].cartItems![0].id!}"]}",
+                        "${productsQuantity[index]["${data[index].id!}"]}",
                         style: const TextStyle(fontSize: 20),
                       ),
                     ),
                     InkWell(
                         onTap: () {
-                          productsQuantity[index]
-                                  ["${data[index].cartItems![0].id!}"] =
-                              productsQuantity[index]
-                                      ["${data[index].cartItems![0].id!}"]! +
+                          productsQuantity[index]["${data[index].id!}"] =
+                              productsQuantity[index]["${data[index].id!}"]! +
                                   1;
                           controller.patchMyCart(
-                              data[index].cartItems![0].productId!,
-                              productsQuantity[index]
-                                  ["${data[index].cartItems![0].id!}"]!,
-                              data[index].storeId!,
-                              data[index].cartItems![0].cartId!);
-                          print("${data[index].cartItems![0].cartId!}");
+                            data[index].product.id!,
+                            productsQuantity[index]["${data[index].id!}"]!,
+                          );
+                          // print("${data[index].product.cartId!}");
                           controller.update();
                         },
                         child: Container(
